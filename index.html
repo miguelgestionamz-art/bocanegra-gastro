@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOCANEGRA Gastro Bar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  --primary:#D4AF37;--primary-hover:#b5952f;--dark-bg:#0a0a0a;
+  --text-main:#f9f9f9;--text-muted:#cccccc;
+  --glass-bg:rgba(20,20,20,0.4);--glass-border:rgba(255,255,255,0.08);
+  --glass-shadow:0 8px 32px 0 rgba(0,0,0,0.37);--glass-blur:blur(12px);
+  --font-heading:'Playfair Display',serif;--font-body:'Outfit',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body,html{width:100%;min-height:100vh;font-family:var(--font-body);color:var(--text-main);background-color:var(--dark-bg);overflow-x:hidden;scroll-behavior:smooth;}
+body{background-image:url('fondo.jpg');background-size:cover;background-position:center;background-attachment:fixed;background-repeat:no-repeat;}
+@supports (-webkit-touch-callout:none){body{background-attachment:scroll;}}
+.bg-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(to bottom,rgba(10,10,10,0.85) 0%,rgba(10,10,10,0.6) 50%,rgba(10,10,10,0.9) 100%);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);z-index:-1;}
+.logo-main{font-family:var(--font-heading);font-size:clamp(3rem,10vw,7rem);font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-main);text-shadow:0 4px 20px rgba(0,0,0,0.8),0 0 40px rgba(212,175,55,0.3);margin-bottom:0.5rem;}
+.logo-sub{font-family:var(--font-body);font-size:clamp(1rem,3vw,1.8rem);font-weight:300;letter-spacing:0.4em;color:var(--primary);text-transform:uppercase;}
+.hero{height:100vh;height:100dvh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;padding:2rem;}
+.scroll-indicator{position:absolute;bottom:2rem;display:flex;flex-direction:column;align-items:center;gap:0.5rem;opacity:0.7;font-size:0.9rem;letter-spacing:0.1em;text-transform:uppercase;}
+.menu-section{padding:4rem 1rem 8rem;display:flex;justify-content:center;}
+.glass-container{width:100%;max-width:1200px;background:var(--glass-bg);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);border:1px solid var(--glass-border);border-radius:24px;padding:3rem 2rem;box-shadow:var(--glass-shadow);}
+.section-title{font-family:var(--font-heading);font-size:2.5rem;text-align:center;margin-bottom:2rem;color:var(--primary);position:relative;}
+.section-title::after{content:'';display:block;width:60px;height:2px;background:var(--primary);margin:1rem auto 0;border-radius:2px;}
+.menu-filters{display:flex;justify-content:center;flex-wrap:wrap;gap:1rem;margin-bottom:3rem;}
+.filter-btn{background:transparent;border:1px solid var(--glass-border);color:var(--text-muted);padding:0.6rem 1.5rem;border-radius:30px;font-family:var(--font-body);font-size:1rem;cursor:pointer;transition:all 0.3s ease;text-transform:uppercase;letter-spacing:0.05em;}
+.filter-btn:hover{border-color:var(--primary);color:var(--text-main);}
+.filter-btn.active{background:var(--primary);color:var(--dark-bg);border-color:var(--primary);font-weight:600;box-shadow:0 0 15px rgba(212,175,55,0.4);}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2rem;}
+.menu-item{padding:1.5rem;border-radius:16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.05);transition:transform 0.3s ease,background 0.3s ease;display:flex;flex-direction:column;gap:0.5rem;}
+.menu-item:hover{transform:translateY(-5px);background:rgba(255,255,255,0.08);border-color:var(--primary);}
+.item-header{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;border-bottom:1px dashed rgba(255,255,255,0.2);padding-bottom:0.5rem;}
+.item-title{font-family:var(--font-heading);font-size:1.25rem;color:var(--text-main);}
+.item-price{font-weight:700;color:var(--primary);font-size:1.1rem;}
+.item-desc{font-size:0.9rem;color:var(--text-muted);line-height:1.5;margin-top:0.5rem;}
+.chat-fab{position:fixed;bottom:2rem;right:2rem;width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--primary),#e6c86a);color:var(--dark-bg);border:none;font-size:1.5rem;display:flex;justify-content:center;align-items:center;cursor:pointer;box-shadow:0 4px 20px rgba(212,175,55,0.5);z-index:100;transition:transform 0.3s cubic-bezier(0.175,0.885,0.32,1.275);}
+.chat-fab:hover{transform:scale(1.1);}
+.pulse{animation:pulse-ring 2s infinite;}
+@keyframes pulse-ring{0%{box-shadow:0 0 0 0 rgba(212,175,55,0.6);}70%{box-shadow:0 0 0 20px rgba(212,175,55,0);}100%{box-shadow:0 0 0 0 rgba(212,175,55,0);}}
+.chat-wrapper{position:fixed;bottom:6rem;right:2rem;width:350px;height:500px;max-height:calc(100vh - 150px);background:rgba(15,15,15,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,0.5);display:flex;flex-direction:column;z-index:99;overflow:hidden;transition:all 0.4s cubic-bezier(0.165,0.84,0.44,1);transform-origin:bottom right;opacity:1;transform:scale(1);}
+.chat-wrapper.hidden{opacity:0;transform:scale(0.8);pointer-events:none;}
+.chat-header{padding:1.2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,0.3);border-bottom:1px solid var(--glass-border);}
+.chat-title{display:flex;align-items:center;gap:0.8rem;}
+.chat-avatar{width:40px;height:40px;background:var(--primary);color:var(--dark-bg);border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:1.2rem;}
+.chat-title h3{font-size:1rem;font-weight:500;}
+.chat-title .status{font-size:0.75rem;color:#4ade80;display:flex;align-items:center;gap:4px;}
+.chat-title .status::before{content:'';width:6px;height:6px;background:#4ade80;border-radius:50%;display:inline-block;}
+.chat-close{background:transparent;border:none;color:var(--text-muted);font-size:1.2rem;cursor:pointer;transition:color 0.2s;}
+.chat-close:hover{color:var(--text-main);}
+.chat-body{flex:1;padding:1.2rem;overflow-y:auto;display:flex;flex-direction:column;gap:1rem;}
+.chat-body::-webkit-scrollbar{width:6px;}
+.chat-body::-webkit-scrollbar-track{background:transparent;}
+.chat-body::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:10px;}
+.message{display:flex;max-width:85%;}
+.ai-message{align-self:flex-start;}
+.user-message{align-self:flex-end;}
+.bubble{padding:0.8rem 1rem;border-radius:16px;font-size:0.9rem;line-height:1.5;}
+.ai-message .bubble{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-bottom-left-radius:4px;color:var(--text-main);}
+.user-message .bubble{background:var(--primary);color:var(--dark-bg);border-bottom-right-radius:4px;font-weight:500;}
+.chat-footer{padding:1rem;background:rgba(0,0,0,0.3);border-top:1px solid var(--glass-border);}
+.input-container{display:flex;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:0.3rem 0.3rem 0.3rem 1rem;transition:border-color 0.3s;}
+.input-container:focus-within{border-color:var(--primary);}
+#chat-input{flex:1;background:transparent;border:none;color:var(--text-main);font-family:var(--font-body);font-size:0.9rem;outline:none;}
+#chat-input::placeholder{color:var(--text-muted);}
+#chat-send{background:var(--primary);color:var(--dark-bg);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;justify-content:center;align-items:center;transition:transform 0.2s;}
+#chat-send:active{transform:scale(0.9);}
+.bounce{animation:bounce 2s infinite;}
+@keyframes bounce{0%,20%,50%,80%,100%{transform:translateY(0);}40%{transform:translateY(-10px);}60%{transform:translateY(-5px);}}
+.fade-in-up{animation:fadeInUp 1s ease-out forwards;}
+.skew-in{animation:skewIn 1s cubic-bezier(0.25,0.46,0.45,0.94) forwards;}
+.slide-in-bottom{animation:slideInBottom 1s ease forwards;opacity:0;}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes skewIn{from{opacity:0;transform:translateY(40px) skewY(5deg);}to{opacity:1;transform:translateY(0) skewY(0);}}
+@keyframes slideInBottom{from{opacity:0;transform:translateY(50px);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:768px){
+  .menu-section{padding:2rem 1rem 6rem;}
+  .glass-container{padding:2rem 1rem;}
+  .menu-grid{grid-template-columns:1fr;}
+  .chat-wrapper{width:calc(100% - 2rem);right:1rem;bottom:5.5rem;height:calc(100dvh - 120px);}
+  .chat-fab{right:1rem;bottom:1rem;}
+}
+</style>
+</head>
+<body>
+<div class="bg-overlay"></div>
+<header class="hero">
+  <div class="logo-container">
+    <h1 class="logo-main skew-in">BOCANEGRA</h1>
+    <p class="logo-sub fade-in-up">GASTRO BAR</p>
+  </div>
+  <div class="scroll-indicator bounce">
+    <p>Descubre nuestra carta</p>
+    <i class="fa-solid fa-chevron-down"></i>
+  </div>
+</header>
+<main class="menu-section">
+  <div class="glass-container slide-in-bottom">
+    <h2 class="section-title">Carta de Platos</h2>
+    <div class="menu-filters">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="entrantes">Entrantes</button>
+      <button class="filter-btn" data-filter="principales">Principales</button>
+      <button class="filter-btn" data-filter="postres">Postres</button>
+    </div>
+    <div class="menu-grid" id="menu-grid"></div>
+  </div>
+</main>
+<button class="chat-fab pulse" id="chat-toggle" aria-label="Abrir Asistente">
+  <i class="fa-solid fa-sparkles"></i>
+</button>
+<div class="chat-wrapper hidden" id="chat-wrapper">
+  <div class="chat-header">
+    <div class="chat-title">
+      <div class="chat-avatar"><i class="fa-solid fa-robot"></i></div>
+      <div>
+        <h3>Santi · Asistente</h3>
+        <span class="status">En línea</span>
+      </div>
+    </div>
+    <button class="chat-close" id="chat-close"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="chat-body" id="chat-body"></div>
+  <div class="chat-footer">
+    <div class="input-container">
+      <input type="text" id="chat-input" placeholder="Reservar mesa o consultar carta..." autocomplete="off">
+      <button id="chat-send" aria-label="Enviar"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+  </div>
+</div>
+<script>
+const OPENAI_KEY = 'PON_TU_KEY_AQUI';
+
+const SYSTEM_PROMPT = `Eres Santi, el asistente virtual de Bocanegra Gastrobar en Getafe, Madrid.
+Direccion: Av. Sancho Panza, 6, 28906 Getafe, Madrid. Telefono: 604 94 74 26.
+Precio medio: 20-30 euros por persona.
+Horarios: Lunes a jueves 8:00-00:00 | Viernes 8:00-01:00 | Sabados 10:00-01:00 | Domingos 10:00-00:00.
+
+TONO: Cercano, profesional, con humor fino castellano. Detecta el idioma del cliente y responde en ese idioma. Respuestas cortas, maximo 3-4 lineas.
+
+AL INICIO saluda como Santi y presenta estas dos opciones:
+RESERVAR MESA
+CONSULTAR LA CARTA
+
+FLUJO RESERVA:
+Recoge los datos UNO A UNO en este orden exacto:
+1. Fecha 2. Hora 3. Numero personas 4. Nombre 5. Telefono 6. Ocasion especial (opcional)
+
+REGLA ANTI-BUCLE:
+- Cuando el usuario responda, EXTRAE el dato, confirmalo brevemente y pasa AL SIGUIENTE
+- JAMAS repitas una pregunta ya respondida
+- Si el usuario da varios datos a la vez, extraelos todos y pasa al siguiente que falte
+- Cuando tengas todos los datos ve DIRECTAMENTE al resumen
+
+Cuando tengas todos los datos muestra:
+RESUMEN DE RESERVA
+Fecha: [x] | Hora: [x] | Personas: [x]
+Nombre: [x] | Tel: [x]
+Notas: [x o Ninguna]
+
+Luego: "En breve recibiras confirmacion por WhatsApp o email y un recordatorio 24h antes. Te esperamos! (Reserva sujeta a confirmacion del restaurante)"
+
+Despues SIEMPRE pregunta:
+"Te gustaria formar parte de nuestros clientes selectos? Rellena un breve formulario y te enviaremos descuentos exclusivos con preferencia en reservas en dias especiales. Te apunto? (Si / Ahora no)"
+
+Si dice SI: pide UNO A UNO: nombre completo, telefono, email, fecha de nacimiento, codigo postal, alergias o intolerancias. Al terminar: "Perfecto! Ya formas parte del club Bocanegra. Pronto recibiras novedades exclusivas."
+Si dice NO: "Sin problema, aqui tienes nuestra carta por si necesitas algo mas."
+
+FLUJO CARTA:
+Pregunta por alergias primero. Recomienda segun preferencias. Si piden algo que no hay, redirige positivamente.
+
+SIEMPRE:
+No gestionas pagos. Cada conversacion es nueva e independiente. Si el cliente se despide cierra con "Hasta pronto! Te esperamos en Bocanegra."`;
+
+const menuData = [
+  {id:1,title:"Jamon Iberico de Bellota",price:"24.00",description:"Cortado a cuchillo al momento, acompanado con pan de cristal y tomate rallado.",category:"entrantes"},
+  {id:2,title:"Croquetas Cremosas",price:"12.50",description:"Surtido de croquetas caseras: jamon iberico y boletus con trufa negra.",category:"entrantes"},
+  {id:3,title:"Ceviche de Corvina",price:"16.00",description:"Marinado en leche de tigre de aji amarillo, maiz chulpi y boniato.",category:"entrantes"},
+  {id:4,title:"Lomo de Vaca Madurada",price:"28.00",description:"Corte premium a la parrilla, patatas asadas al romero y pimientos del padron.",category:"principales"},
+  {id:5,title:"Tartar de Atun Rojo",price:"22.00",description:"Base de aguacate y alino de soja con emulsion de wasabi ligero.",category:"principales"},
+  {id:6,title:"Risotto de Setas Silvestres",price:"18.50",description:"Cremoso de parmesano, trufa fresca rallada y crujiente de queso.",category:"principales"},
+  {id:7,title:"Tarta de Queso Fluida",price:"7.50",description:"Nuestra famosa tarta de queso al horno, estilo vina, con centro cremoso.",category:"postres"},
+  {id:8,title:"Coulant de Chocolate Volcanico",price:"8.00",description:"Con helado artesanal de vainilla Bourbon de Madagascar.",category:"postres"}
+];
+
+const menuGrid = document.getElementById('menu-grid');
+const filterBtns = document.querySelectorAll('.filter-btn');
+
+function renderMenu(category='all'){
+  menuGrid.innerHTML='';
+  (category==='all'?menuData:menuData.filter(i=>i.category===category)).forEach(item=>{
+    const d=document.createElement('div');
+    d.className='menu-item';
+    d.innerHTML=`<div class="item-header"><h3 class="item-title">${item.title}</h3><span class="item-price">${item.price}€</span></div><p class="item-desc">${item.description}</p>`;
+    menuGrid.appendChild(d);
+  });
+}
+
+filterBtns.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    filterBtns.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    menuGrid.style.opacity='0';
+    setTimeout(()=>{renderMenu(btn.getAttribute('data-filter'));menuGrid.style.opacity='1';menuGrid.style.transition='opacity 0.4s ease';},200);
+  });
+});
+renderMenu();
+
+const chatToggle=document.getElementById('chat-toggle');
+const chatWrapper=document.getElementById('chat-wrapper');
+const chatClose=document.getElementById('chat-close');
+const chatInput=document.getElementById('chat-input');
+const chatSend=document.getElementById('chat-send');
+const chatBody=document.getElementById('chat-body');
+let history=[];
+let chatStarted=false;
+
+chatToggle.addEventListener('click',()=>{
+  chatWrapper.classList.toggle('hidden');
+  chatToggle.classList.remove('pulse');
+  if(!chatWrapper.classList.contains('hidden')){
+    if(!chatStarted){chatStarted=true;callOpenAI(null);}
+    chatInput.focus();
+  }
+});
+
+chatClose.addEventListener('click',()=>{
+  chatWrapper.classList.add('hidden');
+  history=[];
+  chatStarted=false;
+  chatBody.innerHTML='';
+});
+
+function addMessage(text,isUser=false){
+  const d=document.createElement('div');
+  d.className=`message ${isUser?'user-message':'ai-message'}`;
+  d.innerHTML=`<div class="bubble"><p>${text.replace(/\n/g,'<br>')}</p></div>`;
+  chatBody.appendChild(d);
+  chatBody.scrollTop=chatBody.scrollHeight;
+}
+
+function showTyping(){
+  const d=document.createElement('div');
+  d.className='message ai-message';d.id='typing';
+  d.innerHTML='<div class="bubble"><span style="opacity:.5">· · ·</span></div>';
+  chatBody.appendChild(d);chatBody.scrollTop=chatBody.scrollHeight;
+}
+function removeTyping(){const t=document.getElementById('typing');if(t)t.remove();}
+
+async function callOpenAI(userMsg){
+  if(userMsg){history.push({role:'user',content:userMsg});addMessage(userMsg,true);chatInput.value='';}
+  chatSend.disabled=true;
+  showTyping();
+  try{
+    const res=await fetch('https://api.openai.com/v1/chat/completions',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Authorization':'Bearer '+OPENAI_KEY},
+      body:JSON.stringify({model:'gpt-4o',max_tokens:500,messages:[{role:'system',content:SYSTEM_PROMPT},...history]})
+    });
+    const data=await res.json();
+    removeTyping();
+    const reply=data.choices&&data.choices[0]?data.choices[0].message.content:'Lo siento, ha habido un error. Llamanos: 604 94 74 26';
+    history.push({role:'assistant',content:reply});
+    addMessage(reply);
+  }catch(e){
+    removeTyping();
+    addMessage('Sin conexion en este momento. Puedes llamarnos: 604 94 74 26');
+  }
+  chatSend.disabled=false;
+}
+
+function handleChat(){
+  const text=chatInput.value.trim();
+  if(!text||chatSend.disabled)return;
+  callOpenAI(text);
+}
+
+chatSend.addEventListener('click',handleChat);
+chatInput.addEventListener('keypress',e=>{if(e.key==='Enter')handleChat();});
+</script>
+</body>
+</html>
