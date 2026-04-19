@@ -100,77 +100,73 @@
         <div class="glass-container slide-in-bottom">
             <h2 class="section-title">Carta de Vinos</h2>
 
-            <div class="wine-grid">
-                <!-- Blancos -->
-                <div class="wine-category">
-                    <h3 class="wine-cat-title"><i class="fa-solid fa-wine-glass"></i> Blancos</h3>
-                    <div class="wine-sub">
-                        <h4>Chardonnay</h4>
-                        <div class="wine-item"><span>700 Alt</span><span class="wine-price">22 €</span></div>
+            <div class="wine-accordion">
+                <!-- Vinos Blancos & Espumosos -->
+                <details class="menu-accordion" open>
+                    <summary class="accordion-header">
+                        <span class="header-text"><i class="fa-solid fa-wine-glass"></i> Blancos & Espumosos</span>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </summary>
+                    <div class="accordion-content">
+                        <div class="wine-sub">
+                            <h4>Blancos (Chardonnay, Verdejo, Godello...)</h4>
+                            <div class="wine-item"><span>Nuestro (Verdejo)</span><span class="wine-price">21 €</span></div>
+                            <div class="wine-item"><span>Circe (Verdejo)</span><span class="wine-price">24 €</span></div>
+                            <div class="wine-item"><span>Marieta (Albariño)</span><span class="wine-price">21 €</span></div>
+                            <div class="wine-item"><span>Martín Codax (Albariño)</span><span class="wine-price">24 €</span></div>
+                            <div class="wine-item"><span>Can do Sil (Godello)</span><span class="wine-price">21 €</span></div>
+                            <div class="wine-item"><span>Baron do Sil (Godello)</span><span class="wine-price">26 €</span></div>
+                            <div class="wine-item"><span>Figueroa (Semidulce)</span><span class="wine-price">21 €</span></div>
+                        </div>
+                        <div class="wine-sub">
+                            <h4>Espumosos</h4>
+                            <div class="wine-item"><span>Pedregosa Blanc Millesime</span><span class="wine-price">23 €</span></div>
+                        </div>
                     </div>
-                    <div class="wine-sub">
-                        <h4>Semidulce</h4>
-                        <div class="wine-item"><span>Figueroa</span><span class="wine-price">21 €</span></div>
-                    </div>
-                    <div class="wine-sub">
-                        <h4>Verdejo</h4>
-                        <div class="wine-item"><span>Nuestro</span><span class="wine-price">21 €</span></div>
-                        <div class="wine-item"><span>Circe</span><span class="wine-price">24 €</span></div>
-                    </div>
-                    <div class="wine-sub">
-                        <h4>Godello</h4>
-                        <div class="wine-item"><span>Can do Sil</span><span class="wine-price">21 €</span></div>
-                        <div class="wine-item"><span>Baron do Sil</span><span class="wine-price">26 €</span></div>
-                    </div>
-                    <div class="wine-sub">
-                        <h4>Albariño</h4>
-                        <div class="wine-item"><span>Marieta</span><span class="wine-price">21 €</span></div>
-                        <div class="wine-item"><span>Martín Codax</span><span class="wine-price">24 €</span></div>
-                    </div>
-                </div>
+                </details>
 
-                <!-- Rosados -->
-                <div class="wine-category">
-                    <h3 class="wine-cat-title"><i class="fa-solid fa-wine-glass"></i> Rosados</h3>
-                    <div class="wine-item"><span>Marieta Rose</span><span class="wine-price">21 €</span></div>
-                </div>
+                <!-- Vinos Rosados -->
+                <details class="menu-accordion">
+                    <summary class="accordion-header">
+                        <span class="header-text"><i class="fa-solid fa-wine-glass"></i> Rosados</span>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </summary>
+                    <div class="accordion-content">
+                        <div class="wine-item"><span>Marieta Rose</span><span class="wine-price">21 €</span></div>
+                    </div>
+                </details>
 
-                <!-- Tintos -->
-                <div class="wine-category wine-category--wide">
-                    <h3 class="wine-cat-title"><i class="fa-solid fa-wine-bottle"></i> Tintos</h3>
-                    <div class="wine-regions">
-                        <div class="wine-sub">
-                            <h4>Ribera del Duero</h4>
-                            <div class="wine-item"><span>Monteabellon 5 Meses</span><span class="wine-price">22 €</span></div>
-                            <div class="wine-item"><span>Diaz Bayo 15 Meses</span><span class="wine-price">25 €</span></div>
-                            <div class="wine-item"><span>Cillar de Silos Crianza 2021</span><span class="wine-price">28 €</span></div>
-                            <div class="wine-item"><span>Dehesa de los Canónigos 2022</span><span class="wine-price">34 €</span></div>
-                            <div class="wine-item"><span>Avelino Vegas Áureo</span><span class="wine-price">36 €</span></div>
-                            <div class="wine-item"><span>Manchón Mieres 5º Año</span><span class="wine-price">68 €</span></div>
-                        </div>
-                        <div class="wine-sub">
-                            <h4>Rioja</h4>
-                            <div class="wine-item"><span>Montaña Crianza</span><span class="wine-price">22 €</span></div>
-                            <div class="wine-item"><span>Marqués de Tomares Crianza 2020</span><span class="wine-price">24 €</span></div>
-                            <div class="wine-item"><span>Cuvée Martinez La Cuesta 2020</span><span class="wine-price">29 €</span></div>
-                            <div class="wine-item"><span>Hinia Martinez Reserva 2015</span><span class="wine-price">36 €</span></div>
-                        </div>
-                        <div class="wine-sub">
-                            <h4>Ribera Sacra</h4>
-                            <div class="wine-item"><span>Pizarras y Esquistos</span><span class="wine-price">22 €</span></div>
-                        </div>
-                        <div class="wine-sub">
-                            <h4>Bierzo</h4>
-                            <div class="wine-item"><span>Cuatro Pasos Black 10 Meses</span><span class="wine-price">25 €</span></div>
+                <!-- Vinos Tintos -->
+                <details class="menu-accordion">
+                    <summary class="accordion-header">
+                        <span class="header-text"><i class="fa-solid fa-wine-bottle"></i> Tintos</span>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </summary>
+                    <div class="accordion-content">
+                        <div class="wine-regions-grid">
+                            <div class="wine-sub">
+                                <h4>Ribera del Duero</h4>
+                                <div class="wine-item"><span>Monteabellon 5 Meses</span><span class="wine-price">22 €</span></div>
+                                <div class="wine-item"><span>Diaz Bayo 15 Meses</span><span class="wine-price">25 €</span></div>
+                                <div class="wine-item"><span>Cillar de Silos Crianza</span><span class="wine-price">28 €</span></div>
+                                <div class="wine-item"><span>Dehesa de los Canónigos</span><span class="wine-price">34 €</span></div>
+                                <div class="wine-item"><span>Avelino Vegas Áureo</span><span class="wine-price">36 €</span></div>
+                            </div>
+                            <div class="wine-sub">
+                                <h4>Rioja</h4>
+                                <div class="wine-item"><span>Montaña Crianza</span><span class="wine-price">22 €</span></div>
+                                <div class="wine-item"><span>Marqués de Tomares Crianza</span><span class="wine-price">24 €</span></div>
+                                <div class="wine-item"><span>Cuvée Martinez La Cuesta</span><span class="wine-price">29 €</span></div>
+                                <div class="wine-item"><span>Hinia Martinez Reserva</span><span class="wine-price">36 €</span></div>
+                            </div>
+                            <div class="wine-sub">
+                                <h4>Ribera Sacra & Bierzo</h4>
+                                <div class="wine-item"><span>Pizarras y Esquistos</span><span class="wine-price">22 €</span></div>
+                                <div class="wine-item"><span>Cuatro Pasos Black</span><span class="wine-price">25 €</span></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Espumosos -->
-                <div class="wine-category">
-                    <h3 class="wine-cat-title"><i class="fa-solid fa-champagne-glasses"></i> Espumosos</h3>
-                    <div class="wine-item"><span>Pedregosa Blanc Millesime</span><span class="wine-price">23 €</span></div>
-                </div>
+                </details>
             </div>
         </div>
     </section>

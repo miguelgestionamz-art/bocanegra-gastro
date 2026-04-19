@@ -484,6 +484,77 @@ body {
     gap: 0.7rem;
 }
 
+/* ═══════════ ACCORDION MENU ═══════════ */
+.wine-accordion {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+    margin-top: 2rem;
+}
+
+@media (max-width: 900px) {
+    .wine-accordion {
+        grid-template-columns: 1fr;
+    }
+}
+
+.menu-accordion {
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.02);
+    overflow: hidden;
+    transition: all 0.3s var(--ease-out);
+}
+
+.menu-accordion[open] {
+    border-color: rgba(212, 175, 55, 0.3);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.accordion-header {
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    list-style: none; /* Hide default marker */
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--text-main);
+    transition: all 0.3s;
+}
+
+.accordion-header::-webkit-details-marker {
+    display: none;
+}
+
+.accordion-header:hover {
+    background: rgba(212, 175, 55, 0.05);
+    color: var(--primary);
+}
+
+.menu-accordion[open] .accordion-header {
+    color: var(--primary);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.toggle-icon {
+    font-size: 0.9rem;
+    transition: transform 0.4s var(--ease-spring);
+    color: var(--primary);
+}
+
+.menu-accordion[open] .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    padding: 2rem;
+}
+
 .menu-note i {
     color: var(--primary);
     font-size: 1rem;
@@ -494,6 +565,19 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 2rem;
+}
+
+.wine-regions-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Stacked within the column */
+    gap: 2rem;
+}
+
+@media (max-width: 900px) {
+    .wine-regions-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 }
 
 .wine-category {
@@ -520,12 +604,6 @@ body {
 .wine-cat-title i {
     font-size: 1rem;
     opacity: 0.7;
-}
-
-.wine-regions {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1.5rem;
 }
 
 .wine-sub {

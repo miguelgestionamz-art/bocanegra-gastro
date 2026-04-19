@@ -39,26 +39,50 @@ const menuData = [
 const menuGrid = document.getElementById('menu-grid');
 const filterBtns = document.querySelectorAll('.filter-btn');
 
-function renderMenu(category = 'all') {
+function renderMenu(activeCategory = 'all') {
     menuGrid.innerHTML = '';
 
-    const filteredData = category === 'all'
-        ? menuData
-        : menuData.filter(item => item.category === category);
+    const categories = [
+        { id: 'barra', name: 'De la Barra', icon: 'fa-utensils' },
+        { id: 'comedor', name: 'En nuestro Comedor', icon: 'fa-bowl-food' },
+        { id: 'postres', name: 'Y para terminar (Postres)', icon: 'fa-cake-candles' }
+    ];
 
-    filteredData.forEach(item => {
-        const menuItem = document.createElement('div');
-        menuItem.className = 'menu-item';
+    categories.forEach(cat => {
+        // If filtering, only show relevant category or hide others
+        if (activeCategory !== 'all' && activeCategory !== cat.id) return;
 
-        menuItem.innerHTML = `
-            <div class="item-header">
-                <h3 class="item-title">${item.title}</h3>
-                <span class="item-price">${item.price}</span>
+        const catAccordion = document.createElement('details');
+        catAccordion.className = 'menu-accordion menu-category-accordion';
+        catAccordion.id = `cat-${cat.id}`;
+        // Open if filtered or if it's the first one in 'all' mode
+        if (activeCategory !== 'all' || cat.id === 'barra') catAccordion.open = true;
+
+        const items = menuData.filter(item => item.category === cat.id);
+        
+        let itemsHtml = items.map(item => `
+            <div class="menu-item">
+                <div class="item-header">
+                    <h3 class="item-title">${item.title}</h3>
+                    <span class="item-price">${item.price}</span>
+                </div>
+                ${item.description ? `<p class="item-desc">${item.description}</p>` : ''}
             </div>
-            ${item.description ? `<p class="item-desc">${item.description}</p>` : ''}
+        `).join('');
+
+        catAccordion.innerHTML = `
+            <summary class="accordion-header">
+                <span class="header-text"><i class="fa-solid ${cat.icon}"></i> ${cat.name}</span>
+                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+            </summary>
+            <div class="accordion-content">
+                <div class="category-items">
+                    ${itemsHtml}
+                </div>
+            </div>
         `;
 
-        menuGrid.appendChild(menuItem);
+        menuGrid.appendChild(catAccordion);
     });
 }
 
@@ -68,11 +92,11 @@ filterBtns.forEach(btn => {
         btn.classList.add('active');
 
         const category = btn.getAttribute('data-filter');
-        menuGrid.style.opacity = '0';
+        menuGrid.style.opacity = '0.3';
         setTimeout(() => {
             renderMenu(category);
             menuGrid.style.opacity = '1';
-        }, 250);
+        }, 200);
     });
 });
 
