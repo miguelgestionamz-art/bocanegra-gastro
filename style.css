@@ -1544,6 +1544,40 @@ body {
         padding: 0.8rem 1rem;
     }
 
+    .nav-logo-img {
+        height: 50px; /* Mas pequeño en movil */
+    }
+
+    .hero-logo {
+        width: 280px;
+        max-width: 85vw;
+    }
+
+    /* Ajuste especifico Club en Movil */
+    .club-content {
+        grid-template-columns: 1fr;
+    }
+
+    .club-visuals {
+        height: 450px !important;
+        order: -1;
+    }
+
+    .club-text {
+        padding: 3rem 1.5rem !important;
+        text-align: center;
+    }
+
+    .club-benefits {
+        text-align: left;
+    }
+
+    .shiny-gold-btn {
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+    }
+
     .content-section {
         padding: 3rem 0.8rem;
     }
@@ -1588,5 +1622,17 @@ body {
 
     .item-title {
         font-size: 0.95rem;
+    }
+
+    .nav-logo-img {
+        height: 42px;
+    }
+
+    .hero-logo {
+        width: 220px;
+    }
+
+    .club-visuals {
+        height: 380px !important;
     }
 }
