@@ -612,6 +612,7 @@
                 <button class="filter-btn" data-filter="entrantes">Entrantes</button>
                 <button class="filter-btn" data-filter="principales">Principales</button>
                 <button class="filter-btn" data-filter="postres">Postres</button>
+                <button class="filter-btn" data-filter="vinos">Vinos</button>
             </div>
 
             <div class="menu-grid" id="menu-grid">
@@ -655,62 +656,45 @@
     <script>
         // Define the Menu Structure
         const menuData = [
-            {
-                id: 1,
-                title: "Jamón Ibérico de Bellota",
-                price: "24.00€",
-                description: "Cortado a cuchillo al momento, acompañado con pan de cristal y tomate rallado.",
-                category: "entrantes"
-            },
-            {
-                id: 2,
-                title: "Croquetas Cremosas",
-                price: "12.50€",
-                description: "Surtido de croquetas caseras: jamón ibérico y boletus con trufa negra.",
-                category: "entrantes"
-            },
-            {
-                id: 3,
-                title: "Ceviche de Corvina",
-                price: "16.00€",
-                description: "Marinado en leche de tigre de ají amarillo, maíz chulpi y boniato.",
-                category: "entrantes"
-            },
-            {
-                id: 4,
-                title: "Lomo de Vaca Madurada",
-                price: "28.00€",
-                description: "Corte premium a la parrilla, patatas asadas al romero y pimientos del padrón.",
-                category: "principales"
-            },
-            {
-                id: 5,
-                title: "Tartar de Atún Rojo",
-                price: "22.00€",
-                description: "Base de aguacate y aliño de soja con emulsión de wasabi ligero.",
-                category: "principales"
-            },
-            {
-                id: 6,
-                title: "Risotto de Setas Silvestres",
-                price: "18.50€",
-                description: "Cremoso de parmesano, trufa fresca rallada y crujiente de queso.",
-                category: "principales"
-            },
-            {
-                id: 7,
-                title: "Tarta de Queso Fluida",
-                price: "7.50€",
-                description: "Nuestra famosa tarta de queso al horno, estilo viña, con centro cremoso.",
-                category: "postres"
-            },
-            {
-                id: 8,
-                title: "Coulant de Chocolate Volcánico",
-                price: "8.00€",
-                description: "Con helado artesanal de vainilla Bourbon de Madagascar.",
-                category: "postres"
-            }
+            // ENTRANTES
+            { id: 1, title: "Nachos con Pulled Pork", price: "15,00€", description: "Nachos crujientes con pulled pork, queso fundido y guarniciones.", category: "entrantes" },
+            { id: 2, title: "Tiras de Pollo Marinadas", price: "12,50€", description: "Acompañadas de salsa miel y mostaza.", category: "entrantes" },
+            { id: 3, title: "Bastones de Merluza en Tempura", price: "13,00€", description: "Con salsa tártara casera.", category: "entrantes" },
+            { id: 4, title: "Croquetas de Jamón", price: "12,50€", description: "8 unidades de nuestras exquisitas croquetas caseras.", category: "entrantes" },
+            { id: 5, title: "½ Croquetas de Jamón", price: "7,00€", description: "4 unidades de nuestras exquisitas croquetas caseras.", category: "entrantes" },
+            { id: 6, title: "Croquetas de Carabineros", price: "13,50€", description: "8 unidades de croquetas cremosas de carabineros.", category: "entrantes" },
+            { id: 7, title: "½ Croquetas de Carabineros", price: "7,50€", description: "4 unidades de croquetas cremosas de carabineros.", category: "entrantes" },
+            { id: 8, title: "Provoletta al estilo Bocanegra", price: "14,50€", description: "Queso provolone fundido con nuestro toque especial.", category: "entrantes" },
+            { id: 9, title: "Anchoa del Cantábrico", price: "19,00€", description: "Calidad premium con tomate rallado.", category: "entrantes" },
+            { id: 10, title: "Huevos Estrellados con Gambas", price: "14,00€", description: "Huevos de corral con gambas al ajillo.", category: "entrantes" },
+            { id: 11, title: "Patatas Bravas con Torrezno", price: "14,50€", description: "Con torrezno de Soria y huevo frito.", category: "entrantes" },
+            { id: 12, title: "Oreja de Cerdo Frita", price: "14,50€", description: "Sobre patata revolcona suave.", category: "entrantes" },
+            { id: 13, title: "Pollo Teriyaki", price: "16,00€", description: "Con verduras salteadas al estilo oriental.", category: "entrantes" },
+
+            // PRINCIPALES
+            { id: 14, title: "Burrata Gourmet", price: "16,50€", description: "Con tomates cherrys confitados en AOVE, pesto de albahaca, brotes verdes y tomates secos.", category: "principales" },
+            { id: 15, title: "Alcachofa Confitada", price: "18,00€", description: "En AOVE, con cremoso de patata y velo de jamón ibérico.", category: "principales" },
+            { id: 16, title: "Parrillada de Verduras", price: "18,50€", description: "Con queso de cabra y reducción de vinagre balsámico.", category: "principales" },
+            { id: 17, title: "Chipirón sobre Panaderas", price: "16,50€", description: "Con cebolla confitada.", category: "principales" },
+            { id: 18, title: "Pata de Pulpo", price: "19,00€", description: "Sobre parmentier trufada.", category: "principales" },
+            { id: 19, title: "Tataki de Atún Rojo", price: "19,00€", description: "Atún de primera calidad marcado a la perfección.", category: "principales" },
+            { id: 20, title: "Carrillera de Ternera", price: "17,50€", description: "Estofada al vino tinto sobre puré de patata.", category: "principales" },
+            { id: 21, title: "Hamburguesa 100% Casera", price: "13,50€", description: "Vacuno madurado con queso Scarmorza.", category: "principales" },
+            { id: 22, title: "Solomillo Strogonoff", price: "19,50€", description: "Tierno solomillo con salsa Strogonoff.", category: "principales" },
+            { id: 23, title: "Chuleta de Simmental (1kg)", price: "65,00€", description: "30 días de maduración, con guarnición.", category: "principales" },
+
+            // POSTRES
+            { id: 24, title: "Postres Caseros", price: "7,00€", description: "Pregunte por nuestra variedad de postres del día.", category: "postres" },
+
+            // VINOS
+            { id: 25, title: "Verdejo Circe", price: "24,00€", description: "Vino Blanco Verdejo", category: "vinos" },
+            { id: 26, title: "Albariño Marieta", price: "21,00€", description: "Vino Blanco Albariño", category: "vinos" },
+            { id: 27, title: "Cillar de Silos Crianza", price: "28,00€", description: "Tinto - Ribera del Duero", category: "vinos" },
+            { id: 28, title: "Monteabellon 5 Meses", price: "22,00€", description: "Tinto - Ribera del Duero", category: "vinos" },
+            { id: 29, title: "Diaz Bayo 15 Meses", price: "25,00€", description: "Tinto - Ribera del Duero", category: "vinos" },
+            { id: 30, title: "Montaña Crianza", price: "22,00€", description: "Tinto - Rioja", category: "vinos" },
+            { id: 31, title: "Hinia Martinez Reserva", price: "36,00€", description: "Tinto - Rioja", category: "vinos" },
+            { id: 32, title: "Pedregosa Blanc Millesime", price: "23,00€", description: "Espumoso Premium", category: "vinos" }
         ];
 
         // Reference to DOM elements
@@ -788,12 +772,13 @@
         // Responses logic simulation
         const responses = [
             { keys: ['hola', 'buenas', 'saludos'], text: "¡Hola! Bienvenido a Bocanegra Gastro Bar. ¿Te gustaría ver nuestra carta o reservar mesa?" },
-            { keys: ['recomiend', 'sugerenc', 'mejor'], text: "Te sugiero que pruebes nuestro 'Lomo de Vaca Madurada' o si prefieres algo de mar, nuestro 'Ceviche de Corvina' está espectacular. ¿Eres más de carne o de pescado?" },
-            { keys: ['carne', 'vaca', 'lomo'], text: "¡Buena elección! Nuestro Lomo de Vaca Madurada se deshace en la boca. Acompañado con una copa de nuestro vino tinto de la casa, es la combinación perfecta." },
-            { keys: ['pescado', 'atun', 'ceviche'], text: "Excelente. El Tartar de Atún Rojo es uno de nuestros best-sellers, preparado con ingredientes frescos cada día." },
-            { keys: ['postre', 'dulce'], text: "No puedes irte sin probar nuestra Tarta de Queso Fluida, ¡es famosa en la ciudad!" },
-            { keys: ['precio', 'cuesta'], text: "Nuestros entrantes rondan los 15-20€ y los principales entre 18-30€. ¿Buscas algo en particular?" },
-            { keys: ['jamon', 'iberico'], text: "Nuestro Jamón Ibérico de Bellota es cortado a cuchillo al momento, tiene un precio de 24.00€. ¡Irresistible!" }
+            { keys: ['recomiend', 'sugerenc', 'mejor'], text: "Te sugiero que pruebes nuestras 'Bravas con Torrezno de Soria' o si prefieres algo más contundente, el 'Chuletón de Simmental' es espectacular. ¿Eres más de picotear o de plato principal?" },
+            { keys: ['carne', 'vaca', 'chuleta', 'solomillo'], text: "¡Buena elección! Nuestra Chuleta de Simmental tiene 30 días de maduración y es una delicia. El Solomillo Strogonoff también sale riquísimo." },
+            { keys: ['pescado', 'atun', 'chipiron', 'merluza'], text: "Excelente. El Tataki de Atún Rojo y el Chipirón sobre panaderas son de lo mejor que tenemos del mar actualmente." },
+            { keys: ['postre', 'dulce'], text: "Tenemos postres caseros del día muy variados por 7€. ¡Pregúntanos por el de hoy!" },
+            { keys: ['precio', 'cuesta'], text: "Nuestros entrantes rondan los 12-19€ y los principales entre 13-20€ (excepto el chuletón de 1kg). ¿Buscas algo en particular?" },
+            { keys: ['brava', 'torrezno'], text: "Nuestras Patatas Bravas con Torrezno de Soria y huevo frito son famosas. Tienen un precio de 14,50€ y son perfectas para compartir." },
+            { keys: ['vino', 'blanco', 'tinto', 'copa'], text: "Tenemos una selección de vinos excelente. Si te gusta el blanco, el Verdejo Circe (24€) es una maravilla. En tintos, el Cillar de Silos (28€) nunca falla." }
         ];
 
         function addMessage(text, isUser = false) {

@@ -4,598 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BOCANEGRA Gastro Bar</title>
+    <title>BOCANEGRA Gastro Bar — Getafe, Madrid</title>
+    <meta name="description" content="Bocanegra Gastro Bar en Getafe, Madrid. Cocina de autor, carnes maduradas, arroces por encargo y una carta de vinos selecta. Reservas: 604 947 426.">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        :root {
-            --primary: #D4AF37;
-            /* Premium Gold */
-            --primary-hover: #b5952f;
-            --dark-bg: #0a0a0a;
-            --text-main: #f9f9f9;
-            --text-muted: #cccccc;
-
-            /* Glassmorphism variables */
-            --glass-bg: rgba(20, 20, 20, 0.4);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            --glass-blur: blur(12px);
-
-            /* Typography */
-            --font-heading: 'Playfair Display', serif;
-            --font-body: 'Outfit', sans-serif;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body,
-        html {
-            width: 100%;
-            min-height: 100vh;
-            font-family: var(--font-body);
-            color: var(--text-main);
-            background-color: var(--dark-bg);
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        /* Base background setup for the image provided */
-        body {
-            /* 
-               NOTA: Como asistente de IA basado en texto, no puedo extraer los datos (en formato base64) de la imagen 
-               que copiaste en mi interfaz gráfica. Aquí he incluido un placeholder base64 (una pixel negro transparente). 
-               Para que funcione con tu imagen real, debes convertirla a base64 y pegar el código gigantesco 
-               donde dice "PEGA_AQUI_TU_IMAGEN_BASE64". 
-               Puedes usar un sitio como base64-image.de para convertirla.
-            */
-            background-image: url('data:image/jpeg;base64,PEGA_AQUI_TU_IMAGEN_BASE64_CONVIRTIENDOLA_EN_UNA_WEB');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-        }
-
-        /* Overlay to darken background and make text pop */
-        .bg-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85) 0%, rgba(10, 10, 10, 0.6) 50%, rgba(10, 10, 10, 0.9) 100%);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            z-index: -1;
-        }
-
-        /* --- Typography & Animations --- */
-        .logo-main {
-            font-family: var(--font-heading);
-            font-size: clamp(3rem, 10vw, 7rem);
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--text-main);
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(212, 175, 55, 0.3);
-            margin-bottom: 0.5rem;
-        }
-
-        .logo-sub {
-            font-family: var(--font-body);
-            font-size: clamp(1rem, 3vw, 1.8rem);
-            font-weight: 300;
-            letter-spacing: 0.4em;
-            color: var(--primary);
-            text-transform: uppercase;
-        }
-
-        /* --- Header / Hero Section --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            padding: 2rem;
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            opacity: 0.7;
-            font-size: 0.9rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        /* --- Menu Section --- */
-        .menu-section {
-            padding: 4rem 1rem 8rem 1rem;
-            display: flex;
-            justify-content: center;
-        }
-
-        .glass-container {
-            width: 100%;
-            max-width: 1200px;
-            background: var(--glass-bg);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 3rem 2rem;
-            box-shadow: var(--glass-shadow);
-        }
-
-        .section-title {
-            font-family: var(--font-heading);
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 2rem;
-            color: var(--primary);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 2px;
-            background: var(--primary);
-            margin: 1rem auto 0;
-            border-radius: 2px;
-        }
-
-        .menu-filters {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 3rem;
-        }
-
-        .filter-btn {
-            background: transparent;
-            border: 1px solid var(--glass-border);
-            color: var(--text-muted);
-            padding: 0.6rem 1.5rem;
-            border-radius: 30px;
-            font-family: var(--font-body);
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .filter-btn:hover {
-            border-color: var(--primary);
-            color: var(--text-main);
-        }
-
-        .filter-btn.active {
-            background: var(--primary);
-            color: var(--dark-bg);
-            border-color: var(--primary);
-            font-weight: 600;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
-        }
-
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .menu-item {
-            padding: 1.5rem;
-            border-radius: 16px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.3s ease, background 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .menu-item:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--primary);
-        }
-
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            gap: 1rem;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
-            padding-bottom: 0.5rem;
-        }
-
-        .item-title {
-            font-family: var(--font-heading);
-            font-size: 1.25rem;
-            color: var(--text-main);
-        }
-
-        .item-price {
-            font-weight: 700;
-            color: var(--primary);
-            font-size: 1.1rem;
-        }
-
-        .item-desc {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-            margin-top: 0.5rem;
-        }
-
-        /* --- AI Chat System --- */
-        .chat-fab {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), #e6c86a);
-            color: var(--dark-bg);
-            border: none;
-            font-size: 1.5rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.5);
-            z-index: 100;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .chat-fab:hover {
-            transform: scale(1.1);
-        }
-
-        .pulse {
-            animation: pulse-ring 2s infinite;
-        }
-
-        @keyframes pulse-ring {
-            0% {
-                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6);
-            }
-
-            70% {
-                box-shadow: 0 0 0 20px rgba(212, 175, 55, 0);
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
-            }
-        }
-
-        .chat-wrapper {
-            position: fixed;
-            bottom: 6rem;
-            right: 2rem;
-            width: 350px;
-            height: 500px;
-            max-height: calc(100vh - 150px);
-            background: rgba(15, 15, 15, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            display: flex;
-            flex-direction: column;
-            z-index: 99;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            transform-origin: bottom right;
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .chat-wrapper.hidden {
-            opacity: 0;
-            transform: scale(0.8);
-            pointer-events: none;
-        }
-
-        .chat-header {
-            padding: 1.2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(0, 0, 0, 0.3);
-            border-bottom: 1px solid var(--glass-border);
-        }
-
-        .chat-title {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .chat-avatar {
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            color: var(--dark-bg);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.2rem;
-        }
-
-        .chat-title h3 {
-            font-size: 1rem;
-            font-weight: 500;
-        }
-
-        .chat-title .status {
-            font-size: 0.75rem;
-            color: #4ade80;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .chat-title .status::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            background: #4ade80;
-            border-radius: 50%;
-            display: inline-block;
-        }
-
-        .chat-close {
-            background: transparent;
-            border: none;
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-
-        .chat-close:hover {
-            color: var(--text-main);
-        }
-
-        .chat-body {
-            flex: 1;
-            padding: 1.2rem;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        /* Scrollbar styles for chat */
-        .chat-body::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .chat-body::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .chat-body::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-        }
-
-        .message {
-            display: flex;
-            max-width: 85%;
-        }
-
-        .ai-message {
-            align-self: flex-start;
-        }
-
-        .user-message {
-            align-self: flex-end;
-        }
-
-        .bubble {
-            padding: 0.8rem 1rem;
-            border-radius: 16px;
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-
-        .ai-message .bubble {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-bottom-left-radius: 4px;
-            color: var(--text-main);
-        }
-
-        .user-message .bubble {
-            background: var(--primary);
-            color: var(--dark-bg);
-            border-bottom-right-radius: 4px;
-            font-weight: 500;
-        }
-
-        .chat-footer {
-            padding: 1rem;
-            background: rgba(0, 0, 0, 0.3);
-            border-top: 1px solid var(--glass-border);
-        }
-
-        .input-container {
-            display: flex;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 0.3rem 0.3rem 0.3rem 1rem;
-            transition: border-color 0.3s;
-        }
-
-        .input-container:focus-within {
-            border-color: var(--primary);
-        }
-
-        #chat-input {
-            flex: 1;
-            background: transparent;
-            border: none;
-            color: var(--text-main);
-            font-family: var(--font-body);
-            font-size: 0.9rem;
-            outline: none;
-        }
-
-        #chat-input::placeholder {
-            color: var(--text-muted);
-        }
-
-        #chat-send {
-            background: var(--primary);
-            color: var(--dark-bg);
-            border: none;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: transform 0.2s;
-        }
-
-        #chat-send:active {
-            transform: scale(0.9);
-        }
-
-        /* Animations Core */
-        .bounce {
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
-                transform: translateY(0);
-            }
-
-            40% {
-                transform: translateY(-10px);
-            }
-
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 1s ease-out forwards;
-        }
-
-        .skew-in {
-            animation: skewIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-        }
-
-        .slide-in-bottom {
-            animation: slideInBottom 1s ease forwards;
-            opacity: 0;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes skewIn {
-            from {
-                opacity: 0;
-                transform: translateY(40px) skewY(5deg);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0) skewY(0);
-            }
-        }
-
-        @keyframes slideInBottom {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .menu-section {
-                padding: 2rem 1rem 6rem;
-            }
-
-            .glass-container {
-                padding: 2rem 1rem;
-            }
-
-            .chat-wrapper {
-                width: calc(100% - 2rem);
-                right: 1rem;
-                bottom: 5.5rem;
-            }
-
-            .chat-fab {
-                right: 1rem;
-                bottom: 1rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="bg-overlay"></div>
 
-    <header class="hero">
+    <!-- ═══════════ NAVIGATION ═══════════ -->
+    <nav class="main-nav" id="main-nav">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo"><img src="bocanegra2.svg" alt="Bocanegra Gastro Bar" class="nav-logo-img"></a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Menú">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#carta">Carta</a></li>
+                <li><a href="#vinos">Vinos</a></li>
+                <li><a href="#reviews">Opiniones</a></li>
+                <li><a href="#info">Info</a></li>
+                <li><a href="#ubicacion">Ubicación</a></li>
+                <li><a href="tel:604947426" class="nav-cta"><i class="fa-solid fa-phone"></i> Reservar</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ═══════════ HERO ═══════════ -->
+    <header class="hero" id="hero">
         <div class="logo-container">
-            <h1 class="logo-main skew-in">BOCANEGRA</h1>
-            <p class="logo-sub fade-in-up">GASTRO BAR</p>
+            <img src="bocanegra2.svg" alt="Bocanegra Gastro Bar" class="hero-logo skew-in">
+            <p class="hero-tagline fade-in-up">Avda. Sancho Panza, 6 · Los Molinos · Getafe</p>
         </div>
         <div class="scroll-indicator bounce">
             <p>Descubre nuestra carta</p>
@@ -603,245 +49,270 @@
         </div>
     </header>
 
-    <main class="menu-section">
+    <!-- ═══════════ SECTION: CARTA ═══════════ -->
+    <section class="content-section" id="carta">
         <div class="glass-container slide-in-bottom">
-            <h2 class="section-title">Carta de Platos</h2>
+            <h2 class="section-title">Nuestra Carta</h2>
 
             <div class="menu-filters">
                 <button class="filter-btn active" data-filter="all">Todos</button>
-                <button class="filter-btn" data-filter="entrantes">Entrantes</button>
-                <button class="filter-btn" data-filter="principales">Principales</button>
+                <button class="filter-btn" data-filter="barra">De la Barra</button>
+                <button class="filter-btn" data-filter="comedor">Comedor</button>
                 <button class="filter-btn" data-filter="postres">Postres</button>
             </div>
 
             <div class="menu-grid" id="menu-grid">
-                <!-- Javascript will populate this -->
+                <!-- JS populated -->
+            </div>
+
+            <div class="menu-note">
+                <i class="fa-solid fa-utensils"></i>
+                Arroces por encargo · Mínimo 2 personas · Variedades según mercado
+            </div>
+            <div class="menu-note">
+                <i class="fa-solid fa-bowl-food"></i>
+                Menú del día de lunes a jueves · 13,50 €
             </div>
         </div>
-    </main>
+    </section>
 
-    <!-- AI Chat System -->
-    <button class="chat-fab pulse" id="chat-toggle" aria-label="Abrir Asistente">
-        <i class="fa-solid fa-sparkles"></i>
-    </button>
+    <!-- ═══════════ SECTION: VINOS ═══════════ -->
+    <section class="content-section" id="vinos">
+        <div class="glass-container slide-in-bottom">
+            <h2 class="section-title">Carta de Vinos</h2>
 
-    <div class="chat-wrapper hidden" id="chat-wrapper">
-        <div class="chat-header">
-            <div class="chat-title">
-                <div class="chat-avatar"><i class="fa-solid fa-robot"></i></div>
-                <div>
-                    <h3>Asistente IA</h3>
-                    <span class="status">En línea</span>
-                </div>
-            </div>
-            <button class="chat-close" id="chat-close"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="chat-body" id="chat-body">
-            <div class="message ai-message">
-                <div class="bubble">
-                    <p>¡Hola! Soy la inteligencia artificial de Bocanegra Gastro Bar ✨<br><br>¿En qué te puedo ayudar?
-                        Puedo recomendarte platos de la carta o sugerirte un buen maridaje.</p>
-                </div>
-            </div>
-        </div>
-        <div class="chat-footer">
-            <div class="input-container">
-                <input type="text" id="chat-input" placeholder="Pregunta sobre la carta..." autocomplete="off">
-                <button id="chat-send" aria-label="Enviar"><i class="fa-solid fa-paper-plane"></i></button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Define the Menu Structure
-        const menuData = [
-            {
-                id: 1,
-                title: "Jamón Ibérico de Bellota",
-                price: "24.00€",
-                description: "Cortado a cuchillo al momento, acompañado con pan de cristal y tomate rallado.",
-                category: "entrantes"
-            },
-            {
-                id: 2,
-                title: "Croquetas Cremosas",
-                price: "12.50€",
-                description: "Surtido de croquetas caseras: jamón ibérico y boletus con trufa negra.",
-                category: "entrantes"
-            },
-            {
-                id: 3,
-                title: "Ceviche de Corvina",
-                price: "16.00€",
-                description: "Marinado en leche de tigre de ají amarillo, maíz chulpi y boniato.",
-                category: "entrantes"
-            },
-            {
-                id: 4,
-                title: "Lomo de Vaca Madurada",
-                price: "28.00€",
-                description: "Corte premium a la parrilla, patatas asadas al romero y pimientos del padrón.",
-                category: "principales"
-            },
-            {
-                id: 5,
-                title: "Tartar de Atún Rojo",
-                price: "22.00€",
-                description: "Base de aguacate y aliño de soja con emulsión de wasabi ligero.",
-                category: "principales"
-            },
-            {
-                id: 6,
-                title: "Risotto de Setas Silvestres",
-                price: "18.50€",
-                description: "Cremoso de parmesano, trufa fresca rallada y crujiente de queso.",
-                category: "principales"
-            },
-            {
-                id: 7,
-                title: "Tarta de Queso Fluida",
-                price: "7.50€",
-                description: "Nuestra famosa tarta de queso al horno, estilo viña, con centro cremoso.",
-                category: "postres"
-            },
-            {
-                id: 8,
-                title: "Coulant de Chocolate Volcánico",
-                price: "8.00€",
-                description: "Con helado artesanal de vainilla Bourbon de Madagascar.",
-                category: "postres"
-            }
-        ];
-
-        // Reference to DOM elements
-        const menuGrid = document.getElementById('menu-grid');
-        const filterBtns = document.querySelectorAll('.filter-btn');
-
-        // Render Menu function
-        function renderMenu(category = 'all') {
-            menuGrid.innerHTML = '';
-
-            const filteredData = category === 'all'
-                ? menuData
-                : menuData.filter(item => item.category === category);
-
-            filteredData.forEach(item => {
-                const menuItem = document.createElement('div');
-                menuItem.className = 'menu-item';
-
-                menuItem.innerHTML = `
-                    <div class="item-header">
-                        <h3 class="item-title">${item.title}</h3>
-                        <span class="item-price">${item.price}</span>
+            <div class="wine-grid">
+                <!-- Blancos -->
+                <div class="wine-category">
+                    <h3 class="wine-cat-title"><i class="fa-solid fa-wine-glass"></i> Blancos</h3>
+                    <div class="wine-sub">
+                        <h4>Chardonnay</h4>
+                        <div class="wine-item"><span>700 Alt</span><span class="wine-price">22 €</span></div>
                     </div>
-                    <p class="item-desc">${item.description}</p>
-                `;
-
-                menuGrid.appendChild(menuItem);
-            });
-        }
-
-        // Menu Filtering Logic
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all
-                filterBtns.forEach(b => b.classList.remove('active'));
-                // Add active to clicked
-                btn.classList.add('active');
-
-                const category = btn.getAttribute('data-filter');
-                // Add quick fade effect
-                menuGrid.style.opacity = '0';
-                setTimeout(() => {
-                    renderMenu(category);
-                    menuGrid.style.opacity = '1';
-                    menuGrid.style.transition = 'opacity 0.4s ease';
-                }, 200);
-            });
-        });
-
-        // Initial Render
-        renderMenu();
-
-        // --- AI Chat Logic ---
-        const chatToggle = document.getElementById('chat-toggle');
-        const chatWrapper = document.getElementById('chat-wrapper');
-        const chatClose = document.getElementById('chat-close');
-        const chatInput = document.getElementById('chat-input');
-        const chatSend = document.getElementById('chat-send');
-        const chatBody = document.getElementById('chat-body');
-
-        // Toggle Chat Window
-        chatToggle.addEventListener('click', () => {
-            chatWrapper.classList.toggle('hidden');
-            // Remove pulse when interacted
-            chatToggle.classList.remove('pulse');
-            if (!chatWrapper.classList.contains('hidden')) {
-                chatInput.focus();
-            }
-        });
-
-        chatClose.addEventListener('click', () => {
-            chatWrapper.classList.add('hidden');
-        });
-
-        // Responses logic simulation
-        const responses = [
-            { keys: ['hola', 'buenas', 'saludos'], text: "¡Hola! Bienvenido a Bocanegra Gastro Bar. ¿Te gustaría ver nuestra carta o reservar mesa?" },
-            { keys: ['recomiend', 'sugerenc', 'mejor'], text: "Te sugiero que pruebes nuestro 'Lomo de Vaca Madurada' o si prefieres algo de mar, nuestro 'Ceviche de Corvina' está espectacular. ¿Eres más de carne o de pescado?" },
-            { keys: ['carne', 'vaca', 'lomo'], text: "¡Buena elección! Nuestro Lomo de Vaca Madurada se deshace en la boca. Acompañado con una copa de nuestro vino tinto de la casa, es la combinación perfecta." },
-            { keys: ['pescado', 'atun', 'ceviche'], text: "Excelente. El Tartar de Atún Rojo es uno de nuestros best-sellers, preparado con ingredientes frescos cada día." },
-            { keys: ['postre', 'dulce'], text: "No puedes irte sin probar nuestra Tarta de Queso Fluida, ¡es famosa en la ciudad!" },
-            { keys: ['precio', 'cuesta'], text: "Nuestros entrantes rondan los 15-20€ y los principales entre 18-30€. ¿Buscas algo en particular?" },
-            { keys: ['jamon', 'iberico'], text: "Nuestro Jamón Ibérico de Bellota es cortado a cuchillo al momento, tiene un precio de 24.00€. ¡Irresistible!" }
-        ];
-
-        function addMessage(text, isUser = false) {
-            const msgDiv = document.createElement('div');
-            msgDiv.className = `message ${isUser ? 'user-message' : 'ai-message'}`;
-
-            msgDiv.innerHTML = `
-                <div class="bubble">
-                    <p>${text}</p>
+                    <div class="wine-sub">
+                        <h4>Semidulce</h4>
+                        <div class="wine-item"><span>Figueroa</span><span class="wine-price">21 €</span></div>
+                    </div>
+                    <div class="wine-sub">
+                        <h4>Verdejo</h4>
+                        <div class="wine-item"><span>Nuestro</span><span class="wine-price">21 €</span></div>
+                        <div class="wine-item"><span>Circe</span><span class="wine-price">24 €</span></div>
+                    </div>
+                    <div class="wine-sub">
+                        <h4>Godello</h4>
+                        <div class="wine-item"><span>Can do Sil</span><span class="wine-price">21 €</span></div>
+                        <div class="wine-item"><span>Baron do Sil</span><span class="wine-price">26 €</span></div>
+                    </div>
+                    <div class="wine-sub">
+                        <h4>Albariño</h4>
+                        <div class="wine-item"><span>Marieta</span><span class="wine-price">21 €</span></div>
+                        <div class="wine-item"><span>Martín Codax</span><span class="wine-price">24 €</span></div>
+                    </div>
                 </div>
-            `;
 
-            chatBody.appendChild(msgDiv);
-            chatBody.scrollTop = chatBody.scrollHeight;
-        }
+                <!-- Rosados -->
+                <div class="wine-category">
+                    <h3 class="wine-cat-title"><i class="fa-solid fa-wine-glass"></i> Rosados</h3>
+                    <div class="wine-item"><span>Marieta Rose</span><span class="wine-price">21 €</span></div>
+                </div>
 
-        function handleChat() {
-            const text = chatInput.value.trim();
-            if (text === '') return;
+                <!-- Tintos -->
+                <div class="wine-category wine-category--wide">
+                    <h3 class="wine-cat-title"><i class="fa-solid fa-wine-bottle"></i> Tintos</h3>
+                    <div class="wine-regions">
+                        <div class="wine-sub">
+                            <h4>Ribera del Duero</h4>
+                            <div class="wine-item"><span>Monteabellon 5 Meses</span><span class="wine-price">22 €</span></div>
+                            <div class="wine-item"><span>Diaz Bayo 15 Meses</span><span class="wine-price">25 €</span></div>
+                            <div class="wine-item"><span>Cillar de Silos Crianza 2021</span><span class="wine-price">28 €</span></div>
+                            <div class="wine-item"><span>Dehesa de los Canónigos 2022</span><span class="wine-price">34 €</span></div>
+                            <div class="wine-item"><span>Avelino Vegas Áureo</span><span class="wine-price">36 €</span></div>
+                            <div class="wine-item"><span>Manchón Mieres 5º Año</span><span class="wine-price">68 €</span></div>
+                        </div>
+                        <div class="wine-sub">
+                            <h4>Rioja</h4>
+                            <div class="wine-item"><span>Montaña Crianza</span><span class="wine-price">22 €</span></div>
+                            <div class="wine-item"><span>Marqués de Tomares Crianza 2020</span><span class="wine-price">24 €</span></div>
+                            <div class="wine-item"><span>Cuvée Martinez La Cuesta 2020</span><span class="wine-price">29 €</span></div>
+                            <div class="wine-item"><span>Hinia Martinez Reserva 2015</span><span class="wine-price">36 €</span></div>
+                        </div>
+                        <div class="wine-sub">
+                            <h4>Ribera Sacra</h4>
+                            <div class="wine-item"><span>Pizarras y Esquistos</span><span class="wine-price">22 €</span></div>
+                        </div>
+                        <div class="wine-sub">
+                            <h4>Bierzo</h4>
+                            <div class="wine-item"><span>Cuatro Pasos Black 10 Meses</span><span class="wine-price">25 €</span></div>
+                        </div>
+                    </div>
+                </div>
 
-            // Add user message
-            addMessage(text, true);
-            chatInput.value = '';
+                <!-- Espumosos -->
+                <div class="wine-category">
+                    <h3 class="wine-cat-title"><i class="fa-solid fa-champagne-glasses"></i> Espumosos</h3>
+                    <div class="wine-item"><span>Pedregosa Blanc Millesime</span><span class="wine-price">23 €</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            // Thinking delay...
-            setTimeout(() => {
-                // Simple mock NLP matching
-                let reply = "Lo siento, no he entendido completamente. Pero te invito a echar un vistazo a nuestra carta de platos, estoy seguro de que encontrarás algo delicioso.";
-                const lowerText = text.toLowerCase();
+    <!-- ═══════════ SECTION: INFO ═══════════ -->
+    <section class="content-section" id="info">
+        <div class="glass-container slide-in-bottom">
+            <h2 class="section-title">Información</h2>
 
-                for (let r of responses) {
-                    if (r.keys.some(k => lowerText.includes(k))) {
-                        reply = r.text;
-                        break;
-                    }
-                }
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon"><i class="fa-regular fa-clock"></i></div>
+                    <h3>Horarios</h3>
+                    <ul class="info-list">
+                        <li><strong>Comidas</strong> 13:30 – 16:00</li>
+                        <li><strong>Cenas</strong> 20:00 – 23:30</li>
+                        <li>Abierto todos los días</li>
+                        <li class="info-muted">Cierra: Navidad y Año Nuevo</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon"><i class="fa-solid fa-chair"></i></div>
+                    <h3>Capacidad</h3>
+                    <ul class="info-list">
+                        <li><strong>Interior</strong> 15 mesas · 60 comensales</li>
+                        <li><strong>Terraza</strong> 20 mesas · Hasta 8 pers./mesa</li>
+                        <li class="info-muted">Reservas online: máx. 6 personas</li>
+                        <li class="info-muted">Grupos: solo por teléfono</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                    <h3>Reservas</h3>
+                    <ul class="info-list">
+                        <li><a href="tel:604947426" class="info-link"><i class="fa-solid fa-phone"></i> 604 947 426</a></li>
+                        <li><a href="https://wa.me/34604947426" target="_blank" class="info-link"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a></li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <h3>Dirección</h3>
+                    <ul class="info-list">
+                        <li>Avda. Sancho Panza, 6</li>
+                        <li>Los Molinos · Getafe</li>
+                        <li>Madrid</li>
+                        <li><a href="https://www.google.com/maps/place/Bocanegra+Gastrobar/@40.3167141,-3.7067076,822m" target="_blank" class="info-link"><i class="fa-solid fa-map-location-dot"></i> Ver en Google Maps</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                addMessage(reply, false);
-            }, 800 + Math.random() * 500); // Between 0.8s and 1.3s delay for realism
-        }
+    <!-- ═══════════ SECTION: UBICACIÓN / MAP ═══════════ -->
+    <section class="content-section" id="ubicacion">
+        <div class="glass-container slide-in-bottom">
+            <h2 class="section-title">Cómo Llegar</h2>
+            <div class="map-wrapper">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3041.0!2d-3.7067076!3d40.3167141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4226323bc40da3%3A0xbocanegragetafe!2sBocanegra+Gastrobar!5e0!3m2!1ses!2ses!4v1"
+                    width="100%" height="400" style="border:0;border-radius:16px;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Ubicación de Bocanegra Gastro Bar en Google Maps">
+                </iframe>
+            </div>
+        </div>
+    </section>
 
-        chatSend.addEventListener('click', handleChat);
-        chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                handleChat();
-            }
-        });
-    </script>
+    <!-- ═══════════ SECTION: REVIEWS ═══════════ -->
+    <section class="content-section" id="reviews">
+        <div class="glass-container slide-in-bottom">
+            <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+            
+            <div class="reviews-grid">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"Lo primero que quiero destacar de este restaurante es la atención de los camareros, son todos maravillosos, simpáticos, atentos .... La comida está buenísima y el ambiente muy agradable."</p>
+                    <p class="review-author">Ainara Ganancias</p>
+                    <span class="review-platform"><i class="fa-brands fa-google"></i> Google Review</span>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"Fuimos a cenar y la experiencia fue excelente. El bar es precioso y muy grande y la comida estaba deliciosa. El ambiente es acogedor y agradable, perfecto para pasar un buen rato. Además, la atención fue de 10."</p>
+                    <p class="review-author">Soledad Rubio Gomez</p>
+                    <span class="review-platform"><i class="fa-brands fa-google"></i> Google Review</span>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"No podíamos haber elegido un sitio mejor para comer este sábado. Atención inmejorable. Comida excelente."</p>
+                    <p class="review-author">Rocio Gallego Nieto</p>
+                    <span class="review-platform"><i class="fa-brands fa-google"></i> Google Review</span>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"Si quieres una buena croqueta, un plato de oreja bien hecha y un servicio de buena calidad y atento en todo momento este es tu sitio, acierto total! Y sobre todo disfruta..."</p>
+                    <p class="review-author">Ken Stan</p>
+                    <span class="review-platform"><i class="fa-brands fa-google"></i> Google Review</span>
+                </div>
+            </div>
+
+            <div class="reviews-cta">
+                <a href="https://www.google.com/maps/place/Bocanegra+Gastrobar/@40.3167141,-3.7041327" target="_blank" class="btn-google-reviews">
+                    <i class="fa-brands fa-google"></i> Ver todas las reseñas en Google
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="bocanegra2.svg" alt="Bocanegra Gastro Bar" class="footer-logo-img">
+            </div>
+            <div class="footer-links">
+                <a href="tel:604947426"><i class="fa-solid fa-phone"></i> 604 947 426</a>
+                <a href="https://wa.me/34604947426" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://www.google.com/maps/place/Bocanegra+Gastrobar/@40.3167141,-3.7067076,822m" target="_blank"><i class="fa-solid fa-map-location-dot"></i> Mapa</a>
+            </div>
+            <p class="footer-address">Avda. Sancho Panza, 6 · Los Molinos · Getafe · Madrid</p>
+            <p class="footer-copy">© 2026 Bocanegra Gastro Bar. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- ═══════════ FLOATING RESERVE BUTTON ═══════════ -->
+    <a href="tel:604947426" class="reserve-fab pulse" aria-label="Reservar mesa">
+        <i class="fa-solid fa-phone"></i>
+        <span class="fab-label">Reservar</span>
+    </a>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
