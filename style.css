@@ -1090,49 +1090,57 @@ body {
     margin-top: 0.2rem;
 }
 
-.club-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
+.club-cta-wrapper {
+    margin-top: 1rem;
 }
 
-.form-group {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-}
-
-.club-form input {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid var(--glass-border);
-    padding: 1rem 1.2rem;
-    border-radius: 8px;
-    color: white;
-    font-size: 0.9rem;
-    transition: all 0.3s;
-}
-
-.club-form input:focus {
-    outline: none;
-    border-color: var(--primary);
-    background: rgba(255,255,255,0.08);
-}
-
-.club-submit-btn {
-    background: var(--primary);
-    color: var(--dark-bg);
-    border: none;
-    padding: 1.1rem;
-    border-radius: 8px;
-    font-weight: 700;
+.shiny-gold-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #d4af37 0%, #f9e29c 50%, #d4af37 100%);
+    background-size: 200% auto;
+    color: #000;
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 800;
     letter-spacing: 0.1em;
-    cursor: pointer;
-    transition: all 0.3s;
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+    transition: all 0.4s var(--ease-out);
+    border: none;
 }
 
-.club-submit-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+/* Shine effect */
+.shiny-gold-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 50%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.6) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    animation: btn-shine 3s infinite;
+}
+
+.shiny-gold-btn:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
+    background-position: right center;
+}
+
+@keyframes btn-shine {
+    0% { left: -100%; }
+    20% { left: 150%; }
+    100% { left: 150%; }
 }
 
 .club-visuals {
