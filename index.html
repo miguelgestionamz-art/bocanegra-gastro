@@ -75,6 +75,7 @@
                 <button class="filter-btn" data-filter="barra">De la Barra</button>
                 <button class="filter-btn" data-filter="comedor">Comedor</button>
                 <button class="filter-btn" data-filter="postres">Postres</button>
+                <a href="carta_bocanegra.pdf" target="_blank" class="pdf-btn"><i class="fa-solid fa-file-pdf"></i> Ver Carta PDF</a>
             </div>
 
             <div class="menu-grid" id="menu-grid">
@@ -341,7 +342,7 @@
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                     </div>
-                    <span class="rating-count">Basado en 310+ reseñas</span>
+                    <span class="rating-count">Basado en 198 reseñas</span>
                 </div>
                 <div class="verified-badge">
                     <div class="badge-icon"><i class="fa-brands fa-google"></i></div>
@@ -457,30 +458,72 @@
             </div>
 
             <div class="reviews-footer">
-                <a href="https://www.google.com/maps/place/Bocanegra+Gastrobar/@40.3167141,-3.7067076,822m" target="_blank" class="google-btn">
+                <a href="https://www.google.com/search?q=Bocanegra+Gastrobar+Getafe#lrd=0xd4226323bc40da3:0xbocanegragetafe,1" target="_blank" class="google-btn">
                     VER TODAS LAS RESEÑAS EN GOOGLE
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════ FOOTER ═══════════ -->
-    <footer class="site-footer">
-        <div class="footer-inner">
-            <div class="footer-brand">
-                <img src="bocanegra2.svg" alt="Bocanegra Gastro Bar" class="footer-logo-img">
+    <!-- ═══════════ NEW FOOTER ═══════════ -->
+    <footer class="main-footer">
+        <div class="footer-top">
+            <div class="footer-col brand-col">
+                <h2 class="footer-brand-title">BOCANEGRA</h2>
+                <p class="footer-brand-subtitle">— Gastro Bar · Getafe —</p>
+                <p class="footer-brand-desc">Cocina de mercado, producto cuidado y bodega seleccionada. En el centro de Getafe.</p>
             </div>
-            <div class="footer-links">
-                <a href="tel:604947426"><i class="fa-solid fa-phone"></i> 604 947 426</a>
-                <a href="https://wa.me/34604947426" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-                <a href="https://www.google.com/maps/place/Bocanegra+Gastrobar/@40.3167141,-3.7067076,822m" target="_blank"><i class="fa-solid fa-map-location-dot"></i> Mapa</a>
+            <div class="footer-col">
+                <h3>VISITA</h3>
+                <ul>
+                    <li><a href="#carta">Carta</a></li>
+                    <li><a href="#dishes">Galería</a></li>
+                    <li><a href="tel:604947426">Reservas</a></li>
+                    <li><a href="#ubicacion">Ubicación</a></li>
+                    <li><a href="#reviews">Reseñas</a></li>
+                </ul>
             </div>
-            <p class="footer-address">Avda. Sancho Panza, 6 · Los Molinos · Getafe · Madrid</p>
-            <p class="footer-copy">© 2026 Bocanegra Gastro Bar. Todos los derechos reservados.</p>
+            <div class="footer-col">
+                <h3>HORARIO</h3>
+                <p>Abierto todos los días</p>
+                <p>Comidas · 13:30 – 16:00</p>
+                <p>Cenas · 20:00 – 23:30</p>
+                <p class="footer-muted">Cierre: Navidad y Año Nuevo</p>
+            </div>
+            <div class="footer-col">
+                <h3>CONTACTO</h3>
+                <p>604 947 426</p>
+                <p><a href="#reviews">Reseñas Google</a></p>
+                <p><a href="#ubicacion">Cómo llegar</a></p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">
+                <a href="tel:604947426" class="footer-reserve-tag">
+                    <div class="tag-icon"><i class="fa-solid fa-store"></i></div>
+                    <div class="tag-text">
+                        <span>RESERVAR MESA</span>
+                        <strong>604 947 426</strong>
+                    </div>
+                </a>
+                <span class="footer-id">BOCANEGRA GASTRO BAR</span>
+            </div>
+            <div class="footer-bottom-center">
+                GETAFE · MADRID
+            </div>
+            <div class="footer-bottom-right">
+                <a href="#">POLÍTICA DE PRIVACIDAD</a> · <a href="#">AVISO LEGAL</a>
+            </div>
         </div>
     </footer>
 
-    <!-- ═══════════ FLOATING RESERVE BUTTON ═══════════ -->
+    <!-- ═══════════ LEFT FLOATING TOP BUTTON ═══════════ -->
+    <a href="#hero" class="home-float" id="home-float" aria-label="Volver arriba">
+        <i class="fa-solid fa-house"></i>
+    </a>
+
+    <!-- ═══════════ FLOATING RESERVE BUTTON (RIGHT) ═══════════ -->
     <a href="tel:604947426" class="reserve-fab pulse" aria-label="Reservar mesa">
         <i class="fa-solid fa-phone"></i>
         <span class="fab-label">Reservar</span>
