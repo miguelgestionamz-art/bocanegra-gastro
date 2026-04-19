@@ -1344,7 +1344,40 @@ body {
     font-size: 0.95rem;
 }
 
-.footer-muted { opacity: 0.5; font-size: 0.8rem; }
+.footer-social {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 1.8rem;
+}
+
+.footer-social a {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--glass-border);
+    color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    transition: all 0.4s var(--ease-spring);
+    text-decoration: none;
+}
+
+.footer-social a:hover {
+    background: var(--primary);
+    color: var(--dark-bg);
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 25px var(--primary-glow);
+}
+
+@media (max-width: 768px) {
+    .footer-social {
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+}
 
 .footer-bottom {
     background: #000;
