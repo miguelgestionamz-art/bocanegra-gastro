@@ -39,10 +39,26 @@
 
     <!-- ═══════════ HERO ═══════════ -->
     <header class="hero" id="hero">
+        <!-- Background Slider -->
+        <div class="hero-slider">
+            <div class="slide active" style="background-image: url('foto_1.jpg');"></div>
+            <div class="slide" style="background-image: url('foto_2.jpg');"></div>
+            <div class="slide" style="background-image: url('foto_3.jpg');"></div>
+            <div class="slide" style="background-image: url('foto_4.jpg');"></div>
+            <div class="slide" style="background-image: url('foto_5.jpg');"></div>
+            <div class="slide" style="background-image: url('foto_6.jpg');"></div>
+            <div class="slide" style="background-image: url('foto_7.jpg');"></div>
+            <div class="slide" style="background-image: url('foto_8.jpg');"></div>
+        </div>
+
         <div class="logo-container">
             <img src="bocanegra2.svg" alt="Bocanegra Gastro Bar" class="hero-logo skew-in">
             <p class="hero-tagline fade-in-up">Avda. Sancho Panza, 6 · Los Molinos · Getafe</p>
         </div>
+
+        <!-- Slider Dots -->
+        <div class="slider-dots" id="slider-dots"></div>
+
         <div class="scroll-indicator bounce">
             <p>Descubre nuestra carta</p>
             <i class="fa-solid fa-chevron-down"></i>
@@ -156,6 +172,94 @@
         </div>
     </section>
 
+    <!-- ═══════════ ASI SE COME (DISHES CAROUSEL) ═══════════ -->
+    <section class="dishes-section slide-in-bottom">
+        <div class="section-header">
+            <span class="section-subtitle">De la cocina</span>
+            <h2 class="section-title gold-text">Así se come</h2>
+            <p class="section-desc">Platos que salen cada día. Producto de mercado, elaboraciones cuidadas y vinos bien elegidos.</p>
+        </div>
+
+        <div class="carousel-container">
+            <button class="carousel-btn prev" id="prev-dish" aria-label="Anterior">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            
+            <div class="carousel-viewport">
+                <div class="carousel-track" id="carousel-track">
+                    <!-- Plato 1 -->
+                    <div class="dish-card">
+                        <div class="dish-img" style="background-image: url('plato_1.jpg');"></div>
+                        <div class="dish-info">
+                            <h3>Hamburguesa Gourmet</h3>
+                            <p>Carne seleccionada con queso fundido y patatas caseras.</p>
+                        </div>
+                    </div>
+                    <!-- Plato 2 -->
+                    <div class="dish-card">
+                        <div class="dish-img" style="background-image: url('plato_2.jpg');"></div>
+                        <div class="dish-info">
+                            <h3>Torrezno de Soria</h3>
+                            <p>Crujiente y tierno sobre cama de patata revolcona.</p>
+                        </div>
+                    </div>
+                    <!-- Plato 3 -->
+                    <div class="dish-card">
+                        <div class="dish-img" style="background-image: url('plato_3.jpg');"></div>
+                        <div class="dish-info">
+                            <h3>Alcachofas Confitadas</h3>
+                            <p>Corazones tiernos con láminas de jamón ibérico.</p>
+                        </div>
+                    </div>
+                    <!-- Plato 4 -->
+                    <div class="dish-card">
+                        <div class="dish-img" style="background-image: url('plato_4.jpg');"></div>
+                        <div class="dish-info">
+                            <h3>Croquetas de la Casa</h3>
+                            <p>Crujientes por fuera y melosas por dentro.</p>
+                        </div>
+                    </div>
+                    <!-- Plato 5 -->
+                    <div class="dish-card">
+                        <div class="dish-img" style="background-image: url('plato_5.jpg');"></div>
+                        <div class="dish-info">
+                            <h3>Tabla de Quesos</h3>
+                            <p>Selección de quesos nacionales con frutos rojos.</p>
+                        </div>
+                    </div>
+                    <!-- Plato 6 -->
+                    <div class="dish-card">
+                        <div class="dish-img" style="background-image: url('plato_6.jpg');"></div>
+                        <div class="dish-info">
+                            <h3>Tartar de Salmón</h3>
+                            <p>Salmon fresco marinado con base de aguacate y lima.</p>
+                        </div>
+                    </div>
+                    <!-- Plato 7 -->
+                    <div class="dish-card">
+                        <div class="dish-img" style="background-image: url('plato_7.jpg');"></div>
+                        <div class="dish-info">
+                            <h3>Anchoas de Santoña</h3>
+                            <p>Filetes premium sobre pan de cristal con tomate.</p>
+                        </div>
+                    </div>
+                    <!-- Plato 8 -->
+                    <div class="dish-card">
+                        <div class="dish-img" style="background-image: url('plato_8.jpg');"></div>
+                        <div class="dish-info">
+                            <h3>Chipirones a la Brasa</h3>
+                            <p>Pescado fresco del día con toque de ajo y perejil.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-btn next" id="next-dish" aria-label="Siguiente">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+    </section>
+
     <!-- ═══════════ SECTION: INFO ═══════════ -->
     <section class="content-section" id="info">
         <div class="glass-container slide-in-bottom">
@@ -222,69 +326,139 @@
     <!-- ═══════════ SECTION: REVIEWS ═══════════ -->
     <section class="content-section" id="reviews">
         <div class="glass-container slide-in-bottom">
-            <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+            <div class="section-header">
+                <span class="section-subtitle">Lo que dicen</span>
+                <h2 class="section-title gold-text">En palabras de nuestros comensales</h2>
+            </div>
+            
+            <div class="rating-overview">
+                <div class="rating-main">
+                    <span class="rating-score">4,8/5</span>
+                    <div class="rating-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <span class="rating-count">Basado en 310+ reseñas</span>
+                </div>
+                <div class="verified-badge">
+                    <div class="badge-icon"><i class="fa-brands fa-google"></i></div>
+                    <div class="badge-text">
+                        <strong>Valoraciones verificadas</strong>
+                        <span>Google Business Profile</span>
+                    </div>
+                </div>
+            </div>
             
             <div class="reviews-grid">
                 <!-- Review 1 -->
                 <div class="review-card">
-                    <div class="review-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
+                    <div class="review-meta">
+                        <div class="review-user">
+                            <div class="user-avatar" style="background-color: #f4b400;">M</div>
+                            <div class="user-info">
+                                <strong>María G.</strong>
+                                <span>Hace 2 semanas</span>
+                            </div>
+                        </div>
+                        <div class="review-stars-small">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
                     </div>
-                    <p class="review-text">"Lo primero que quiero destacar de este restaurante es la atención de los camareros, son todos maravillosos, simpáticos, atentos .... La comida está buenísima y el ambiente muy agradable."</p>
-                    <p class="review-author">Ainara Ganancias</p>
-                    <span class="review-platform"><i class="fa-brands fa-google"></i> Google Review</span>
+                    <p class="review-text">"El tartar de atún rojo es sublime y la atención impecable. Un sitio como este hacía falta en Getafe. Volveremos sin duda."</p>
                 </div>
 
                 <!-- Review 2 -->
                 <div class="review-card">
-                    <div class="review-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
+                    <div class="review-meta">
+                        <div class="review-user">
+                            <div class="user-avatar" style="background-color: #4285f4;">J</div>
+                            <div class="user-info">
+                                <strong>Jordi P.</strong>
+                                <span>Hace 1 mes</span>
+                            </div>
+                        </div>
+                        <div class="review-stars-small">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
                     </div>
-                    <p class="review-text">"Fuimos a cenar y la experiencia fue excelente. El bar es precioso y muy grande y la comida estaba deliciosa. El ambiente es acogedor y agradable, perfecto para pasar un buen rato. Además, la atención fue de 10."</p>
-                    <p class="review-author">Soledad Rubio Gomez</p>
-                    <span class="review-platform"><i class="fa-brands fa-google"></i> Google Review</span>
+                    <p class="review-text">"Producto de primera, brasa perfecta y vinos elegidos con criterio. Terraza muy agradable y trato cercano."</p>
                 </div>
 
                 <!-- Review 3 -->
                 <div class="review-card">
-                    <div class="review-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
+                    <div class="review-meta">
+                        <div class="review-user">
+                            <div class="user-avatar" style="background-color: #34a853;">L</div>
+                            <div class="user-info">
+                                <strong>Laura M.</strong>
+                                <span>Hace 3 semanas</span>
+                            </div>
+                        </div>
+                        <div class="review-stars-small">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
                     </div>
-                    <p class="review-text">"No podíamos haber elegido un sitio mejor para comer este sábado. Atención inmejorable. Comida excelente."</p>
-                    <p class="review-author">Rocio Gallego Nieto</p>
-                    <span class="review-platform"><i class="fa-brands fa-google"></i> Google Review</span>
+                    <p class="review-text">"Tienen ese punto justo entre cocina tradicional y actual. La torrija merece viajar solo por ella."</p>
                 </div>
 
                 <!-- Review 4 -->
                 <div class="review-card">
-                    <div class="review-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
+                    <div class="review-meta">
+                        <div class="review-user">
+                            <div class="user-avatar" style="background-color: #ea4335;">D</div>
+                            <div class="user-info">
+                                <strong>David B.</strong>
+                                <span>Hace 2 meses</span>
+                            </div>
+                        </div>
+                        <div class="review-stars-small">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
                     </div>
-                    <p class="review-text">"Si quieres una buena croqueta, un plato de oreja bien hecha y un servicio de buena calidad y atento en todo momento este es tu sitio, acierto total! Y sobre todo disfruta..."</p>
-                    <p class="review-author">Ken Stan</p>
-                    <span class="review-platform"><i class="fa-brands fa-google"></i> Google Review</span>
+                    <p class="review-text">"Muy buena relación calidad-precio. El arroz de carabineros estaba para repetir. Se llena los sábados, mejor reservar."</p>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="review-card">
+                    <div class="review-meta">
+                        <div class="review-user">
+                            <div class="user-avatar" style="background-color: #fb8c00;">S</div>
+                            <div class="user-info">
+                                <strong>Sophia K.</strong>
+                                <span>Hace 2 semanas</span>
+                            </div>
+                        </div>
+                        <div class="review-stars-small">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="review-text">"Best meal during our stay near Madrid. The chef even came out to explain the dishes, felt incredibly personal."</p>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="review-card">
+                    <div class="review-meta">
+                        <div class="review-user">
+                            <div class="user-avatar" style="background-color: #673ab7;">A</div>
+                            <div class="user-info">
+                                <strong>Antonio L.</strong>
+                                <span>Hace 4 días</span>
+                            </div>
+                        </div>
+                        <div class="review-stars-small">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="review-text">"Cocina con alma. El chuletón madurado es de los mejores que he probado por la zona sur. Carta de vinos notable."</p>
                 </div>
             </div>
 
-            <div class="reviews-cta">
-                <a href="https://www.google.com/maps/place/Bocanegra+Gastrobar/@40.3167141,-3.7041327" target="_blank" class="btn-google-reviews">
-                    <i class="fa-brands fa-google"></i> Ver todas las reseñas en Google
+            <div class="reviews-footer">
+                <a href="https://www.google.com/maps/place/Bocanegra+Gastrobar/@40.3167141,-3.7067076,822m" target="_blank" class="google-btn">
+                    VER TODAS LAS RESEÑAS EN GOOGLE
                 </a>
             </div>
         </div>

@@ -107,6 +107,55 @@ navLinks.querySelectorAll('a').forEach(link => {
 });
 
 // =============================================
+// HERO SLIDER LOGIC
+// =============================================
+const slides = document.querySelectorAll('.hero-slider .slide');
+const dotsContainer = document.getElementById('slider-dots');
+let currentSlide = 0;
+let sliderInterval;
+
+function initSliderDots() {
+    slides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.className = `dot ${index === 0 ? 'active' : ''}`;
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+}
+
+function updateSlider() {
+    slides.forEach((slide, index) => {
+        slide.classList.toggle('active', index === currentSlide);
+    });
+    
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+    });
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    updateSlider();
+}
+
+function goToSlide(index) {
+    currentSlide = index;
+    updateSlider();
+    resetInterval();
+}
+
+function resetInterval() {
+    clearInterval(sliderInterval);
+    sliderInterval = setInterval(nextSlide, 6000); // 6s per slide
+}
+
+if (slides.length > 0) {
+    initSliderDots();
+    resetInterval();
+}
+
+// =============================================
 // SCROLL REVEAL ANIMATIONS
 // =============================================
 const observerOptions = {
@@ -127,3 +176,100 @@ const revealObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.slide-in-bottom').forEach(el => {
     revealObserver.observe(el);
 });
+
+// =============================================
+// DISHES CAROUSEL LOGIC (INFINITE LOOP)
+// =============================================
+const track = document.getElementById('carousel-track');
+const prevBtn = document.getElementById('prev-dish');
+const nextBtn = document.getElementById('next-dish');
+let cards = Array.from(document.querySelectorAll('.dish-card'));
+
+let carouselIndex = 0;
+let isTransitioning = false;
+
+function initInfiniteCarousel() {
+    if (!track || cards.length === 0) return;
+
+    const visibleCards = getVisibleCards();
+    
+    // Clone first and last items for infinite feel
+    for (let i = 0; i < visibleCards; i++) {
+        const firstClone = cards[i].cloneNode(true);
+        const lastClone = cards[cards.length - 1 - i].cloneNode(true);
+        track.appendChild(firstClone);
+        track.insertBefore(lastClone, cards[0]);
+    }
+
+    // Refresh cards list including clones
+    const allCards = document.querySelectorAll('.dish-card');
+    carouselIndex = visibleCards; // Start at the first real card
+    
+    updateCarousel(false); // Init without transition
+
+    nextBtn.addEventListener('click', () => {
+        if (isTransitioning) return;
+        carouselIndex++;
+        updateCarousel(true);
+    });
+
+    prevBtn.addEventListener('click', () => {
+        if (isTransitioning) return;
+        carouselIndex--;
+        updateCarousel(true);
+    });
+
+    track.addEventListener('transitionend', () => {
+        isTransitioning = false;
+        const totalCards = document.querySelectorAll('.dish-card').length;
+        const visibleCards = getVisibleCards();
+
+        if (carouselIndex >= totalCards - visibleCards) {
+            track.style.transition = 'none';
+            carouselIndex = visibleCards;
+            updateCarousel(false);
+        } else if (carouselIndex <= 0) {
+            track.style.transition = 'none';
+            carouselIndex = totalCards - visibleCards - 1;
+            updateCarousel(false);
+        }
+    });
+}
+
+function getVisibleCards() {
+    if (window.innerWidth <= 650) return 1;
+    if (window.innerWidth <= 1024) return 2;
+    return 3;
+}
+
+function updateCarousel(withTransition = true) {
+    const allCards = document.querySelectorAll('.dish-card');
+    if (allCards.length === 0) return;
+
+    const cardWidth = allCards[0].offsetWidth;
+    const gap = 24; 
+    const moveDistance = (cardWidth + gap) * carouselIndex;
+    
+    if (withTransition) {
+        isTransitioning = true;
+        track.style.transition = 'transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
+    } else {
+        track.style.transition = 'none';
+    }
+    
+    track.style.transform = `translateX(-${moveDistance}px)`;
+}
+
+window.addEventListener('resize', () => {
+    // For simplicity with clones, we re-init or just reset on major resize
+    location.reload(); 
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (track) {
+        setTimeout(initInfiniteCarousel, 300);
+    }
+});
+
+
+
