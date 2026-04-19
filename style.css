@@ -1149,38 +1149,26 @@ body {
     overflow: hidden;
 }
 
-.club-images {
+.club-carousel {
     width: 100%;
     height: 100%;
     position: relative;
 }
 
-.club-img-box {
+.club-slide {
     position: absolute;
+    inset: 0;
     background-size: cover;
     background-position: center;
-    transition: transform 0.8s var(--ease-out);
-}
-
-.main-img {
-    inset: 0;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out, transform 6s linear;
     z-index: 1;
-    filter: brightness(0.6) contrast(1.1);
 }
 
-.sub-img {
-    width: 60%;
-    height: 60%;
-    bottom: -10%;
-    right: -10%;
+.club-slide.active {
+    opacity: 1;
     z-index: 2;
-    border: 5px solid var(--dark-bg);
-    box-shadow: -20px -20px 50px rgba(0,0,0,0.5);
-    border-radius: 12px;
-}
-
-.club-card:hover .sub-img {
-    transform: translate(-20px, -20px);
+    transform: scale(1.08); /* Sutil efecto Ken Burns */
 }
 
 @media (max-width: 1000px) {

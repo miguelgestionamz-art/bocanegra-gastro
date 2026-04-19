@@ -266,10 +266,49 @@ window.addEventListener('resize', () => {
     updateCarousel(false);
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    if (track) {
-        setTimeout(initInfiniteCarousel, 300);
+/* ═══════════ CLUB CAROUSEL ═══════════ */
+function initClubCarousel() {
+    const clubCarousel = document.getElementById('club-carousel');
+    if (!clubCarousel) return;
+
+    const slides = clubCarousel.querySelectorAll('.club-slide');
+    let currentIndex = 0;
+
+    if (slides.length <= 1) return;
+
+    function nextSlide() {
+        slides[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % slides.length;
+        slides[currentIndex].classList.add('active');
     }
+
+    setInterval(nextSlide, 4000);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Hero Slider (already defined usually but ensuring it runs)
+    if (typeof initHeroSlider === 'function') initHeroSlider();
+    
+    // Dishes Carousel
+    if (document.getElementById('carousel-track')) {
+        setTimeout(initInfiniteCarousel, 100);
+    }
+    
+    // Club Carousel
+    initClubCarousel();
+
+    // Smooth scroll for nav
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === "#") return;
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
 });
 
 
