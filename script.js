@@ -261,8 +261,9 @@ function updateCarousel(withTransition = true) {
 }
 
 window.addEventListener('resize', () => {
-    // For simplicity with clones, we re-init or just reset on major resize
-    location.reload(); 
+    const visibleCards = getVisibleCards();
+    // Only reset if number of visible cards changes or after a debounce
+    updateCarousel(false);
 });
 
 document.addEventListener('DOMContentLoaded', () => {
