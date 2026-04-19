@@ -113,11 +113,18 @@ body {
 }
 
 .nav-logo-img {
-    height: 36px;
+    height: 65px; /* Ligeramente mas grande */
     width: auto;
-    height: 60px;
-    width: auto;
-    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4)) contrast(1.1);
+    /* Efecto: Interior blanco con borde negro y resplandor dorado */
+    filter: brightness(0) invert(1) 
+            drop-shadow(1px 1px 0px #000) 
+            drop-shadow(-1px -1px 0px #000)
+            drop-shadow(0 0 10px rgba(212, 175, 55, 0.8));
+    transition: transform 0.3s var(--ease-out);
+}
+
+.nav-logo:hover .nav-logo-img {
+    transform: scale(1.05);
 }
 
 .nav-links {
@@ -296,10 +303,14 @@ body {
 }
 
 .hero-logo {
-    width: 320px;
+    width: 350px; /* Mas imponente */
     max-width: 85vw;
     margin-bottom: 0.5rem;
-    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.5));
+    /* Efecto: Interior blanco con borde negro y resplandor dorado */
+    filter: brightness(0) invert(1) 
+            drop-shadow(2px 2px 0px #000) 
+            drop-shadow(-2px -2px 0px #000)
+            drop-shadow(0 0 15px rgba(212, 175, 55, 0.9));
 }
 
 .scroll-indicator {
