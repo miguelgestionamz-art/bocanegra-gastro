@@ -1050,8 +1050,8 @@ body {
 
 .club-content {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    min-height: 500px;
+    grid-template-columns: 1fr 1.2fr; /* Mas espacio a la imagen */
+    min-height: 600px; /* Mas alto para evitar recortes */
 }
 
 .club-text {
@@ -1160,9 +1160,11 @@ body {
     inset: 0;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     opacity: 0;
     transition: opacity 1.5s ease-in-out, transform 6s linear;
     z-index: 1;
+    /* Eliminamos filtros para que se lea el texto de la imagen */
 }
 
 .club-slide.active {
