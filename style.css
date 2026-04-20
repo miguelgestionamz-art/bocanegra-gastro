@@ -184,8 +184,8 @@ body {
 
 /* ═══════════ HERO ═══════════ */
 .hero {
-    height: 70vh;
-    height: 70svh;
+    min-height: 85vh;
+    min-height: 85svh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -294,14 +294,34 @@ body {
     text-transform: uppercase;
 }
 
-.hero-tagline {
-    margin-top: 0.5rem; /* Pegado al logo */
-    font-size: 1.05rem;
+.hero-seo-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+    font-style: italic;
+    font-weight: 600;
+    color: var(--primary);
+    letter-spacing: 0.04em;
+    margin-top: 1.8rem;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.9), 0 0 20px rgba(212, 175, 55, 0.2);
+    line-height: 1.3;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+}
+
+.hero-seo-desc {
+    font-family: var(--font-body);
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
     color: var(--text-main);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    z-index: 10;
+    margin-top: 1rem;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.9);
+    opacity: 0.9;
+    padding: 0 1rem;
 }
 
 .hero-logo {
@@ -1380,22 +1400,33 @@ body {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--glass-border);
-    color: var(--primary);
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.3rem;
     transition: all 0.4s var(--ease-spring);
     text-decoration: none;
+    border: none;
 }
 
-.footer-social a:hover {
-    background: var(--primary);
-    color: var(--dark-bg);
+.footer-social a.social-ig {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    color: #fff;
+}
+
+.footer-social a.social-wa {
+    background: #25D366;
+    color: #fff;
+}
+
+.footer-social a.social-ig:hover {
     transform: translateY(-5px) scale(1.1);
-    box-shadow: 0 10px 25px var(--primary-glow);
+    box-shadow: 0 10px 25px rgba(214, 36, 159, 0.4);
+}
+
+.footer-social a.social-wa:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
 }
 
 @media (max-width: 768px) {
@@ -1486,9 +1517,10 @@ body {
 @media (max-width: 600px) {
     .reserve-fab {
         bottom: 1.5rem;
-        right: 1.5rem; /* Mas alejado del borde para evitar recortes */
-        width: 65px;
-        height: 65px;
+        right: 1.5rem;
+        width: auto;
+        height: 55px;
+        padding: 0 1.2rem;
         z-index: 10000;
     }
 
