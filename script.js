@@ -40,63 +40,67 @@ const menuGrid = document.getElementById('menu-grid');
 const filterBtns = document.querySelectorAll('.filter-btn');
 
 function renderMenu(activeCategory = 'all') {
-    menuGrid.innerHTML = '';
+    // Add fading class
+    menuGrid.classList.add('filtering');
+    
+    setTimeout(() => {
+        menuGrid.innerHTML = '';
 
-    const categories = [
-        { id: 'barra', name: 'De la Barra', icon: 'fa-utensils' },
-        { id: 'comedor', name: 'En nuestro Comedor', icon: 'fa-bowl-food' },
-        { id: 'postres', name: 'Y para terminar (Postres)', icon: 'fa-cake-candles' }
-    ];
+        const categories = [
+            { id: 'barra', name: 'De la Barra', icon: 'fa-utensils' },
+            { id: 'comedor', name: 'En nuestro Comedor', icon: 'fa-bowl-food' },
+            { id: 'postres', name: 'Y para terminar (Postres)', icon: 'fa-cake-candles' }
+        ];
 
-    categories.forEach(cat => {
-        // If filtering, only show relevant category or hide others
-        if (activeCategory !== 'all' && activeCategory !== cat.id) return;
+        categories.forEach(cat => {
+            if (activeCategory !== 'all' && activeCategory !== cat.id) return;
 
-        const catAccordion = document.createElement('details');
-        catAccordion.className = 'menu-accordion menu-category-accordion';
-        catAccordion.id = `cat-${cat.id}`;
-        // Open if filtered or if it's the first one in 'all' mode
-        if (activeCategory !== 'all' || cat.id === 'barra') catAccordion.open = true;
+            const catAccordion = document.createElement('details');
+            catAccordion.className = 'menu-accordion menu-category-accordion';
+            catAccordion.id = `cat-${cat.id}`;
+            if (activeCategory !== 'all' || cat.id === 'barra') catAccordion.open = true;
 
-        const items = menuData.filter(item => item.category === cat.id);
-        
-        let itemsHtml = items.map(item => `
-            <div class="menu-item">
-                <div class="item-header">
-                    <h3 class="item-title">${item.title}</h3>
-                    <span class="item-price">${item.price}</span>
+            const items = menuData.filter(item => item.category === cat.id);
+            
+            let itemsHtml = items.map((item, index) => `
+                <div class="menu-item" style="animation-delay: ${index * 0.05}s">
+                    <div class="item-header">
+                        <h3 class="item-title">${item.title}</h3>
+                        <span class="item-price">${item.price}</span>
+                    </div>
+                    ${item.description ? `<p class="item-desc">${item.description}</p>` : ''}
                 </div>
-                ${item.description ? `<p class="item-desc">${item.description}</p>` : ''}
-            </div>
-        `).join('');
+            `).join('');
 
-        catAccordion.innerHTML = `
-            <summary class="accordion-header">
-                <span class="header-text"><i class="fa-solid ${cat.icon}"></i> ${cat.name}</span>
-                <i class="fa-solid fa-chevron-down toggle-icon"></i>
-            </summary>
-            <div class="accordion-content">
-                <div class="category-items">
-                    ${itemsHtml}
+            catAccordion.innerHTML = `
+                <summary class="accordion-header">
+                    <span class="header-text"><i class="fa-solid ${cat.icon}"></i> ${cat.name}</span>
+                    <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                </summary>
+                <div class="accordion-content">
+                    <div class="category-items">
+                        ${itemsHtml}
+                    </div>
                 </div>
-            </div>
-        `;
+            `;
 
-        menuGrid.appendChild(catAccordion);
-    });
+            menuGrid.appendChild(catAccordion);
+        });
+
+        // Remove fading class
+        menuGrid.classList.remove('filtering');
+    }, 300);
 }
 
 filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
+        if (btn.classList.contains('active')) return;
+        
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
         const category = btn.getAttribute('data-filter');
-        menuGrid.style.opacity = '0.3';
-        setTimeout(() => {
-            renderMenu(category);
-            menuGrid.style.opacity = '1';
-        }, 200);
+        renderMenu(category);
     });
 });
 
