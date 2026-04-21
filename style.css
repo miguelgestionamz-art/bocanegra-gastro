@@ -14,10 +14,10 @@
     --accent-warm: #3d2b1a;
 
     /* Glassmorphism Refined */
-    --glass-bg: rgba(18, 14, 10, 0.65);
-    --glass-border: rgba(212, 175, 55, 0.18);
-    --glass-shadow: 0 15px 50px -12px rgba(0, 0, 0, 0.6);
-    --glass-blur: blur(20px);
+    --glass-bg: rgba(20, 16, 12, 0.75);
+    --glass-border: rgba(212, 175, 55, 0.25);
+    --glass-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+    --glass-blur: blur(24px);
 
     /* Typography */
     --font-heading: 'Playfair Display', serif;
@@ -447,12 +447,12 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 1.2rem;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out);
 }
 
 .menu-grid.filtering {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(12px);
     pointer-events: none;
 }
 
@@ -524,9 +524,16 @@ body {
 }
 
 .menu-note.highlight {
-    background: linear-gradient(90deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
-    border: 1px solid rgba(212, 175, 55, 0.2);
+    background: linear-gradient(90deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.05));
+    border: 1px solid rgba(212, 175, 55, 0.3);
     border-left: 4px solid var(--primary);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+    animation: gold-pulse 3s infinite alternate;
+}
+
+@keyframes gold-pulse {
+    0% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.1); }
+    100% { box-shadow: 0 0 25px rgba(212, 175, 55, 0.3); }
 }
 
 /* ═══════════ ACCORDION MENU ═══════════ */
@@ -1521,6 +1528,14 @@ body {
         width: auto;
         height: 55px;
         padding: 0 1.2rem;
+        z-index: 10000;
+    }
+
+    .home-float {
+        bottom: 1.5rem;
+        left: 1.5rem;
+        width: 55px;
+        height: 55px;
         z-index: 10000;
     }
 
