@@ -73,11 +73,12 @@
             <h2 class="section-title">Nuestra Carta</h2>
 
             <div class="menu-filters">
-                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn active" data-filter="terraza">Terraza</button>
                 <button class="filter-btn" data-filter="barra">De la Barra</button>
                 <button class="filter-btn" data-filter="comedor">Comedor</button>
                 <button class="filter-btn" data-filter="postres">Postres</button>
                 <a href="carta_bocanegra.jpg" target="_blank" class="pdf-btn"><i class="fa-solid fa-file-image"></i> VER CARTA COMPLETA</a>
+                <a href="carta_terraza.jpg" target="_blank" class="pdf-btn"><i class="fa-solid fa-sun"></i> CARTA TERRAZA</a>
             </div>
 
             <div class="menu-grid" id="menu-grid">
@@ -245,6 +246,54 @@
                         <div class="dish-info">
                             <h3>Chipirones a la Brasa</h3>
                             <p>Pescado fresco del día con toque de ajo y perejil.</p>
+                        </div>
+                    </div>
+                    <!-- Plato 9 -->
+                    <div class="dish-card">
+                        <div class="dish-img" style="background-image: url('plato_9.png');"></div>
+                        <div class="dish-info">
+                            <h3>Chipirón sobre Panaderas</h3>
+                            <p>Chipirón sobre panaderas y cebolla confitada.</p>
+                        </div>
+                    </div>
+                    <!-- Plato 10 -->
+                    <div class="dish-card">
+                        <div class="dish-img" style="background-image: url('plato_10.png');"></div>
+                        <div class="dish-info">
+                            <h3>Burrata con Tomates Cherrys</h3>
+                            <p>Tomates confitados en AOVE, pesto de albahaca, brotes verdes y tomates secos.</p>
+                        </div>
+                    </div>
+                    <!-- Plato 11 -->
+                    <div class="dish-card">
+                        <div class="dish-img" style="background-image: url('plato_11.png');"></div>
+                        <div class="dish-info">
+                            <h3>Tarta de Queso</h3>
+                            <p>Postre casero de la casa. Siempre hay un final dulce.</p>
+                        </div>
+                    </div>
+                    <!-- Plato 12 -->
+                    <div class="dish-card">
+                        <div class="dish-img" style="background-image: url('plato_12.png');"></div>
+                        <div class="dish-info">
+                            <h3>Brownie con Helado</h3>
+                            <p>Postre casero de la casa. Siempre hay un final dulce.</p>
+                        </div>
+                    </div>
+                    <!-- Plato 13 -->
+                    <div class="dish-card">
+                        <div class="dish-img" style="background-image: url('plato_13.png');"></div>
+                        <div class="dish-info">
+                            <h3>Tataki de Atún</h3>
+                            <p>Atún rojo marcado con sésamo, verduras y reducción teriyaki.</p>
+                        </div>
+                    </div>
+                    <!-- Plato 14 -->
+                    <div class="dish-card">
+                        <div class="dish-img" style="background-image: url('plato_14.png');"></div>
+                        <div class="dish-info">
+                            <h3>Chuletón a la Brasa</h3>
+                            <p>Carne madurada a la brasa con verduras y tomates cherry.</p>
                         </div>
                     </div>
 
@@ -527,13 +576,13 @@
         
         <div class="footer-bottom">
             <div class="footer-bottom-left">
-                <a href="tel:604947426" class="footer-reserve-tag">
+                <button onclick="openReserveModal()" class="footer-reserve-tag">
                     <div class="tag-icon"><i class="fa-solid fa-store"></i></div>
                     <div class="tag-text">
                         <span>RESERVAR MESA</span>
                         <strong>604 947 426</strong>
                     </div>
-                </a>
+                </button>
                 <span class="footer-id">BOCANEGRA GASTRO BAR</span>
             </div>
             <div class="footer-bottom-center">
@@ -551,10 +600,31 @@
     </a>
 
     <!-- ═══════════ FLOATING RESERVE BUTTON (RIGHT) ═══════════ -->
-    <a href="tel:604947426" class="reserve-fab pulse" aria-label="Reservar mesa">
+    <button onclick="openReserveModal()" class="reserve-fab pulse" aria-label="Reservar mesa">
         <i class="fa-solid fa-phone"></i>
         <span class="fab-label">Reservar</span>
-    </a>
+    </button>
+
+    <!-- ═══════════ MODAL RESERVA ═══════════ -->
+    <div id="reserve-modal" class="reserve-modal-overlay" onclick="closeReserveModal(event)">
+        <div class="reserve-modal-box">
+            <button class="reserve-modal-close" onclick="closeReserveModal()"><i class="fa-solid fa-xmark"></i></button>
+            <p class="reserve-modal-sub">Reserva en Bocanegra</p>
+            <h2 class="reserve-modal-title">¿Para cuándo quieres reservar?</h2>
+            <div class="reserve-modal-options">
+                <a href="https://wa.me/34604947426?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20mesa%20para%20comer%20%F0%9F%8D%BD%EF%B8%8F" target="_blank" class="reserve-option-btn" id="btn-comida">
+                    <i class="fa-solid fa-sun"></i>
+                    <span>Comida</span>
+                    <small>13:30 – 16:00</small>
+                </a>
+                <a href="https://wa.me/34604947426?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20mesa%20para%20cenar%20%F0%9F%8D%B7" target="_blank" class="reserve-option-btn" id="btn-cena">
+                    <i class="fa-solid fa-moon"></i>
+                    <span>Cena</span>
+                    <small>20:00 – 23:30</small>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

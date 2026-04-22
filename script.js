@@ -1,4 +1,22 @@
 // =============================================
+// MODAL RESERVA
+// =============================================
+function openReserveModal() {
+    document.getElementById('reserve-modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeReserveModal(e) {
+    if (e && e.target !== document.getElementById('reserve-modal')) return;
+    document.getElementById('reserve-modal').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeReserveModal();
+});
+
+// =============================================
 // MENU DATA — Bocanegra Gastro Bar
 // =============================================
 const menuData = [
@@ -23,7 +41,26 @@ const menuData = [
     { id: 16, title: "Hamburguesa de vacuno", price: "13,50 €", description: "Madurada 100% casera con queso Scarmorza.", category: "comedor" },
 
     // POSTRES
-    { id: 17, title: "Para terminar", price: "7 €", description: "Siempre hay un final dulce... consulte nuestros postres caseros.", category: "postres" }
+    { id: 17, title: "Para terminar", price: "7 €", description: "Siempre hay un final dulce... consulte nuestros postres caseros.", category: "postres" },
+
+    // TERRAZA
+    { id: 18, title: "Nachos con pulled pork", price: "15 €", description: "Nachos crujientes con pulled pork.", category: "terraza" },
+    { id: 19, title: "Tiras de pollo marinadas", price: "12,50 €", description: "Acompañadas de salsa miel y mostaza.", category: "terraza" },
+    { id: 20, title: "Bastones de merluza en tempura", price: "13 €", description: "Con salsa tártara casera.", category: "terraza" },
+    { id: 21, title: "Croquetas de jamón (8 uds)", price: "12,50 €", description: "Croquetas caseras de jamón.", category: "terraza" },
+    { id: 22, title: "½ Croquetas de jamón (4 uds)", price: "7 €", description: "Media ración de croquetas de jamón.", category: "terraza" },
+    { id: 23, title: "Croquetas de carabineros (8 uds)", price: "13,50 €", description: "Croquetas de carabineros.", category: "terraza" },
+    { id: 24, title: "½ Croquetas de carabineros (4 uds)", price: "7,50 €", description: "Media ración de croquetas de carabineros.", category: "terraza" },
+    { id: 25, title: "Provoletta al estilo Bocanegra", price: "14,50 €", description: "Queso provolone fundido al estilo Bocanegra.", category: "terraza" },
+    { id: 26, title: "Huevos estrellados con gambas al ajillo", price: "14 €", description: "Huevos estrellados con gambas al ajillo.", category: "terraza" },
+    { id: 27, title: "Patatas bravas con torrezno", price: "14,50 €", description: "Con torrezno de Soria y huevo frito.", category: "terraza" },
+    { id: 28, title: "Oreja de cerdo frita", price: "14,50 €", description: "Sobre patata revolcona.", category: "terraza" },
+    { id: 29, title: "Pollo teriyaki", price: "16 €", description: "Con verduras salteadas.", category: "terraza" },
+    { id: 30, title: "Burrata con tomates cherrys", price: "16,50 €", description: "Confitados en AOVE, pesto de albahaca, brotes verdes y tomates secos.", category: "terraza" },
+    { id: 31, title: "Parrillada de verduras", price: "18,50 €", description: "Con queso de cabra y reducción de vinagre balsámico.", category: "terraza" },
+    { id: 32, title: "Chipirón sobre panaderas", price: "16,50 €", description: "Y cebolla confitada.", category: "terraza" },
+    { id: 33, title: "Hamburguesa de vacuno madurada", price: "13,50 €", description: "100% casera con queso Scarmorza.", category: "terraza" },
+    { id: 34, title: "Postres caseros", price: "7 €", description: "Siempre hay un final dulce... consulte nuestros postres caseros.", category: "terraza" }
 ];
 
 // =============================================
@@ -40,6 +77,7 @@ function renderMenu(activeCategory = 'all') {
         menuGrid.innerHTML = '';
 
         const categories = [
+            { id: 'terraza', name: 'La Terraza de Bocanegra', icon: 'fa-sun' },
             { id: 'barra', name: 'De la Barra', icon: 'fa-utensils' },
             { id: 'comedor', name: 'En nuestro Comedor', icon: 'fa-bowl-food' },
             { id: 'postres', name: 'Y para terminar (Postres)', icon: 'fa-cake-candles' }
@@ -51,7 +89,7 @@ function renderMenu(activeCategory = 'all') {
             const catAccordion = document.createElement('details');
             catAccordion.className = 'menu-accordion menu-category-accordion';
             catAccordion.id = `cat-${cat.id}`;
-            if (activeCategory !== 'all' || cat.id === 'barra') catAccordion.open = true;
+            if (activeCategory !== 'all' || cat.id === 'terraza') catAccordion.open = true;
 
             const items = menuData.filter(item => item.category === cat.id);
             
@@ -97,7 +135,7 @@ filterBtns.forEach(btn => {
     });
 });
 
-renderMenu();
+renderMenu('terraza');
 
 // =============================================
 // NAVIGATION

@@ -1863,3 +1863,97 @@ body {
         margin-bottom: 2rem;
     }
 }
+
+/* ═══════════ MODAL RESERVA ═══════════ */
+.reserve-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+.reserve-modal-overlay.active {
+    display: flex;
+}
+.reserve-modal-box {
+    background: linear-gradient(135deg, rgba(20,16,10,0.98), rgba(10,8,5,0.99));
+    border: 1px solid rgba(201,163,87,0.35);
+    border-radius: 20px;
+    padding: 2.5rem 2rem 2rem;
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 60px rgba(201,163,87,0.15);
+}
+.reserve-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255,255,255,0.08);
+    border: none;
+    color: #aaa;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+.reserve-modal-close:hover { background: rgba(255,255,255,0.15); color: #fff; }
+.reserve-modal-sub {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+}
+.reserve-modal-title {
+    font-size: 1.4rem;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 2rem;
+}
+.reserve-modal-options {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+.reserve-option-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 1.5rem 1rem;
+    border-radius: 14px;
+    border: 1px solid rgba(201,163,87,0.3);
+    background: rgba(201,163,87,0.07);
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.25s, border-color 0.25s, transform 0.2s;
+    cursor: pointer;
+}
+.reserve-option-btn:hover {
+    background: rgba(201,163,87,0.18);
+    border-color: var(--gold);
+    transform: translateY(-3px);
+}
+.reserve-option-btn i { font-size: 1.6rem; color: var(--gold); }
+.reserve-option-btn span { font-size: 1.05rem; font-weight: 600; letter-spacing: 0.05em; }
+.reserve-option-btn small { font-size: 0.75rem; color: #aaa; }
+
+/* Fix footer-reserve-tag as button */
+button.footer-reserve-tag {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-family: inherit;
+}
