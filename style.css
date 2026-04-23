@@ -1613,13 +1613,15 @@ body {
 
 .dish-card {
     flex: 0 0 calc((100% - 3rem) / 3); /* 3 items view */
-    background: var(--dark-surface);
+    background: #0a0805;
     border-radius: 20px;
     overflow: hidden;
     border: 1px solid var(--glass-border);
     transition: transform 0.4s var(--ease-spring), border-color 0.4s;
-    position: relative;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    height: 380px;
 }
 
 .dish-card:hover {
@@ -1629,8 +1631,8 @@ body {
 }
 
 .dish-img {
-    height: 400px;
-    background-size: contain;
+    flex: 1;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     transition: transform 0.6s;
@@ -1642,25 +1644,20 @@ body {
 }
 
 .dish-info {
-    padding: 2rem 1.5rem;
-    background: linear-gradient(to top, rgba(10, 8, 5, 0.95) 10%, transparent);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    padding: 0.9rem 1.2rem;
+    background: #0a0805;
+    flex-shrink: 0;
 }
 
 .dish-info h3 {
     font-family: var(--font-heading);
     color: var(--primary);
-    font-size: 1.3rem;
-    margin-bottom: 0.4rem;
+    font-size: 1.1rem;
+    margin: 0;
 }
 
 .dish-info p {
-    font-size: 0.9rem;
-    color: var(--text-main);
-    opacity: 0.9;
+    display: none;
 }
 
 .carousel-btn {
