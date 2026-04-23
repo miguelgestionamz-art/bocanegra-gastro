@@ -115,9 +115,8 @@ body {
 .nav-logo-img {
     height: 65px;
     width: auto;
-    /* Usamos el SVG con fondo blanco interno + detalles oro */
-    filter: drop-shadow(0 0 1px #000) 
-            drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
+    filter: invert(1);
+    mix-blend-mode: screen;
     transition: transform 0.3s var(--ease-out);
 }
 
@@ -333,6 +332,8 @@ body {
     width: 350px;
     max-width: 85vw;
     margin-bottom: 0rem;
+    filter: invert(1);
+    mix-blend-mode: screen;
 }
 
 .scroll-indicator {
