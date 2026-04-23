@@ -333,9 +333,6 @@ body {
     width: 350px;
     max-width: 85vw;
     margin-bottom: 0rem;
-    /* Usamos el SVG nativo (ahora blanco con oro) */
-    filter: drop-shadow(0 0 2px rgba(0,0,0,0.8)) 
-            drop-shadow(0 0 15px rgba(212, 175, 55, 0.6));
 }
 
 .scroll-indicator {
