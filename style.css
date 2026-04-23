@@ -208,20 +208,25 @@ body {
 .slide {
     position: absolute;
     inset: 0;
-    background-size: cover; 
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0;
-    transition: opacity 1.5s ease-in-out, transform 8s linear;
+    transform: scale(1.0);
+    transition: opacity 1.2s ease-in-out;
     image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
     filter: contrast(1.08) saturate(1.05);
     will-change: opacity, transform;
 }
 
 .slide.active {
     opacity: 1;
-    transform: scale(1.1);
+    animation: kenBurns 7s ease-in-out forwards;
+}
+
+@keyframes kenBurns {
+    0%   { transform: scale(1.0); }
+    100% { transform: scale(1.18); }
 }
 
 .slider-dots {
@@ -2012,16 +2017,3 @@ button.footer-reserve-tag {
     }
 }
 
-/* ═══════════ HERO SLIDER — KEN BURNS ZOOM ═══════════ */
-@keyframes kenBurns {
-    0%   { transform: scale(1);    }
-    100% { transform: scale(1.12); }
-}
-
-.slide {
-    transform-origin: center center;
-}
-
-.slide.active {
-    animation: kenBurns 6s ease-in-out forwards;
-}
