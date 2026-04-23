@@ -2011,3 +2011,17 @@ button.footer-reserve-tag {
         padding: 0.9rem 1.3rem;
     }
 }
+
+/* ═══════════ HERO SLIDER — KEN BURNS ZOOM ═══════════ */
+@keyframes kenBurns {
+    0%   { transform: scale(1);    }
+    100% { transform: scale(1.12); }
+}
+
+.slide {
+    transform-origin: center center;
+}
+
+.slide.active {
+    animation: kenBurns 6s ease-in-out forwards;
+}

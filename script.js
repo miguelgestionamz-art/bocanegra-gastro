@@ -185,8 +185,13 @@ function initSliderDots() {
 function updateSlider() {
     slides.forEach((slide, index) => {
         slide.classList.toggle('active', index === currentSlide);
+        if (index === currentSlide) {
+            slide.style.animation = 'none';
+            slide.offsetHeight; // reflow para resetear la animación
+            slide.style.animation = '';
+        }
     });
-    
+
     const dots = document.querySelectorAll('.dot');
     dots.forEach((dot, index) => {
         dot.classList.toggle('active', index === currentSlide);
