@@ -115,7 +115,6 @@ body {
 .nav-logo-img {
     height: 65px;
     width: auto;
-    mix-blend-mode: screen;
     transition: transform 0.3s var(--ease-out);
 }
 
@@ -331,7 +330,6 @@ body {
     width: 350px;
     max-width: 85vw;
     margin-bottom: 0rem;
-    mix-blend-mode: screen;
 }
 
 .scroll-indicator {
