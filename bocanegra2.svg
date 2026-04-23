@@ -10,9 +10,9 @@ viewBox="0 0 38946.7 22013.4"
    <![CDATA[
     .str0 {stroke:#2B2A29;stroke-width:20;stroke-miterlimit:22.9256}
     .fil4 {fill:none}
-    .fil1 {fill:#FFFFFF}
-    .fil0 {fill:#FFFFFF}
-    .fil2 {fill:#FFFFFF}
+    .fil1 {fill:#FFFFFF;fill-rule:evenodd}
+    .fil0 {fill:#FFFFFF;fill-rule:evenodd}
+    .fil2 {fill:#FFFFFF;fill-rule:evenodd}
     .fil93 {fill:#946D40}
     .fil6 {fill:#956E41}
     .fil7 {fill:#966F42}
@@ -102,7 +102,7 @@ viewBox="0 0 38946.7 22013.4"
     .fil90 {fill:#C9A674}
     .fil91 {fill:#CAA775}
     .fil92 {fill:#CAA775}
-    .fil5 {fill:#FEFEFE}
+    .fil5 {fill:#FEFEFE;fill-rule:evenodd}
     .fil94 {fill:url(#id1)}
    ]]>
   </style>
