@@ -115,7 +115,6 @@ body {
 .nav-logo-img {
     height: 65px;
     width: auto;
-    filter: invert(1);
     mix-blend-mode: screen;
     transition: transform 0.3s var(--ease-out);
 }
@@ -332,7 +331,6 @@ body {
     width: 350px;
     max-width: 85vw;
     margin-bottom: 0rem;
-    filter: invert(1);
     mix-blend-mode: screen;
 }
 
