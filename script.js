@@ -89,7 +89,7 @@ function renderMenu(activeCategory = 'all') {
             const catAccordion = document.createElement('details');
             catAccordion.className = 'menu-accordion menu-category-accordion';
             catAccordion.id = `cat-${cat.id}`;
-            if (activeCategory !== 'all' || cat.id === 'terraza') catAccordion.open = true;
+            if (activeCategory !== 'all' || cat.id === 'comedor') catAccordion.open = true;
 
             const items = menuData.filter(item => item.category === cat.id);
             
@@ -135,7 +135,7 @@ filterBtns.forEach(btn => {
     });
 });
 
-renderMenu('terraza');
+renderMenu('comedor');
 
 // =============================================
 // NAVIGATION
