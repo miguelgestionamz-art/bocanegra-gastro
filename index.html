@@ -322,6 +322,30 @@ button.footer-reserve-tag { background: none; border: none; cursor: pointer; pad
 @media (max-width: 480px) { .filter-btn { padding: 0.6rem 1.4rem; font-size: 0.78rem; } .menu-item { padding: 1rem; } .item-title { font-size: 0.95rem; } .nav-logo-img { height: 42px; } .hero-logo { width: 220px; } .club-visuals { height: 380px !important; } }
 @media (max-width: 768px) { .reserve-modal-box { padding: 2rem 1.5rem 1.75rem; border-radius: 18px; width: 92%; } .reserve-modal-title { font-size: 1.25rem; margin-bottom: 1.5rem; } .reserve-option-btn { padding: 1.25rem 0.75rem; border-radius: 12px; } .reserve-option-btn i { font-size: 1.4rem; } .reserve-option-btn span { font-size: 1rem; } }
 @media (max-width: 480px) { .reserve-modal-box { padding: 1.75rem 1.25rem 1.5rem; width: 95%; border-radius: 16px; } .reserve-modal-title { font-size: 1.1rem; margin-bottom: 1.25rem; } .reserve-modal-options { gap: 0.75rem; } .reserve-option-btn { padding: 1.1rem 0.5rem; border-radius: 10px; } .reserve-option-btn i { font-size: 1.3rem; } .reserve-option-btn span { font-size: 0.95rem; } .reserve-fab { bottom: 1.2rem; right: 1.2rem; padding: 0.9rem 1.3rem; } }
+
+/* ═══════════ COOKIE BANNER ═══════════ */
+#cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 99999; background: rgba(10,8,5,0.97); border-top: 1px solid rgba(212,175,55,0.3); padding: 1.2rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; backdrop-filter: blur(20px); transform: translateY(100%); transition: transform 0.5s var(--ease-out); }
+#cookie-banner.visible { transform: translateY(0); }
+.cookie-text { flex: 1; min-width: 200px; font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+.cookie-text strong { color: var(--text-main); }
+.cookie-text a { color: var(--primary); text-decoration: underline; cursor: pointer; }
+.cookie-btns { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+.cookie-btn-accept { background: var(--primary); color: #000; border: none; padding: 0.6rem 1.4rem; border-radius: 30px; font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: all 0.3s; white-space: nowrap; }
+.cookie-btn-accept:hover { background: #e6c84a; }
+.cookie-btn-reject { background: transparent; color: var(--text-muted); border: 1px solid rgba(255,255,255,0.15); padding: 0.6rem 1.4rem; border-radius: 30px; font-size: 0.85rem; cursor: pointer; transition: all 0.3s; white-space: nowrap; }
+.cookie-btn-reject:hover { border-color: var(--text-muted); color: var(--text-main); }
+
+/* ═══════════ LEGAL MODALES ═══════════ */
+.legal-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 99998; align-items: center; justify-content: center; padding: 1rem; }
+.legal-modal-overlay.active { display: flex; }
+.legal-modal-box { background: linear-gradient(135deg,rgba(18,14,10,0.99),rgba(10,8,5,0.99)); border: 1px solid rgba(212,175,55,0.25); border-radius: 20px; padding: 2.5rem; max-width: 700px; width: 100%; max-height: 80vh; overflow-y: auto; position: relative; }
+.legal-modal-box h2 { font-family: 'Playfair Display',serif; color: var(--primary); font-size: 1.5rem; margin-bottom: 1.5rem; }
+.legal-modal-box h3 { color: var(--text-main); font-size: 1rem; margin: 1.2rem 0 0.5rem; }
+.legal-modal-box p, .legal-modal-box li { color: var(--text-muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 0.5rem; }
+.legal-modal-box ul { padding-left: 1.2rem; margin-bottom: 0.8rem; }
+.legal-modal-close { position: absolute; top: 1rem; right: 1rem; background: rgba(255,255,255,0.08); border: none; color: #aaa; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+.legal-modal-close:hover { background: rgba(255,255,255,0.2); color: #fff; }
+@media (max-width: 600px) { #cookie-banner { padding: 1rem; flex-direction: column; align-items: flex-start; } .cookie-btns { width: 100%; } .cookie-btn-accept, .cookie-btn-reject { flex: 1; text-align: center; } }
     </style>
 </head>
 
@@ -662,7 +686,7 @@ button.footer-reserve-tag { background: none; border: none; cursor: pointer; pad
             </div>
             <div class="footer-bottom-center">GETAFE · MADRID</div>
             <div class="footer-bottom-right">
-                <a href="#">POLÍTICA DE PRIVACIDAD</a> · <a href="#">AVISO LEGAL</a>
+                <a onclick="openLegalModal('privacidad')" style="cursor:pointer;">POLÍTICA DE PRIVACIDAD</a> · <a onclick="openLegalModal('cookies')" style="cursor:pointer;">COOKIES</a> · <a onclick="openLegalModal('aviso')" style="cursor:pointer;">AVISO LEGAL</a>
             </div>
         </div>
     </footer>
@@ -690,7 +714,129 @@ button.footer-reserve-tag { background: none; border: none; cursor: pointer; pad
         </div>
     </div>
 
+    <!-- ═══════════ COOKIE BANNER ═══════════ -->
+    <div id="cookie-banner">
+        <p class="cookie-text">
+            <strong>Usamos cookies</strong> para mejorar tu experiencia en nuestra web. Puedes aceptar todas las cookies o solo las necesarias para el funcionamiento básico.
+            <a onclick="openLegalModal('cookies')"> Política de Cookies</a> ·
+            <a onclick="openLegalModal('privacidad')"> Política de Privacidad</a>
+        </p>
+        <div class="cookie-btns">
+            <button class="cookie-btn-reject" onclick="rejectCookies()">Solo necesarias</button>
+            <button class="cookie-btn-accept" onclick="acceptCookies()">Aceptar todas</button>
+        </div>
+    </div>
+
+    <!-- ═══════════ MODAL: POLÍTICA DE PRIVACIDAD ═══════════ -->
+    <div id="modal-privacidad" class="legal-modal-overlay" onclick="closeLegalModal('privacidad', event)">
+        <div class="legal-modal-box">
+            <button class="legal-modal-close" onclick="closeLegalModal('privacidad')"><i class="fa-solid fa-xmark"></i></button>
+            <h2>Política de Privacidad</h2>
+            <h3>Responsable del tratamiento</h3>
+            <p>Bocanegra Gastro Bar · Avda. Sancho Panza, 6, Los Molinos, Getafe, Madrid · bocanegra.getafe@gmail.com · 604 947 426</p>
+            <h3>Datos que recogemos</h3>
+            <p>Recogemos únicamente los datos que nos facilitas voluntariamente al realizar una reserva o rellenar el formulario del Club Bocanegra: nombre, teléfono y correo electrónico.</p>
+            <h3>Finalidad</h3>
+            <ul>
+                <li>Gestión y confirmación de reservas.</li>
+                <li>Envío de información sobre el Club Bocanegra y ofertas exclusivas (solo si das tu consentimiento).</li>
+            </ul>
+            <h3>Base legal</h3>
+            <p>El tratamiento de tus datos se basa en tu consentimiento expreso y en la ejecución de la relación contractual derivada de la reserva.</p>
+            <h3>Conservación</h3>
+            <p>Conservamos tus datos durante el tiempo necesario para cumplir la finalidad para la que fueron recogidos y, en todo caso, durante los plazos legalmente establecidos.</p>
+            <h3>Tus derechos</h3>
+            <p>Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a bocanegra.getafe@gmail.com. También tienes derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (aepd.es).</p>
+            <h3>Cesión de datos</h3>
+            <p>No cedemos tus datos a terceros salvo obligación legal.</p>
+        </div>
+    </div>
+
+    <!-- ═══════════ MODAL: POLÍTICA DE COOKIES ═══════════ -->
+    <div id="modal-cookies" class="legal-modal-overlay" onclick="closeLegalModal('cookies', event)">
+        <div class="legal-modal-box">
+            <button class="legal-modal-close" onclick="closeLegalModal('cookies')"><i class="fa-solid fa-xmark"></i></button>
+            <h2>Política de Cookies</h2>
+            <p>Esta web utiliza cookies propias y de terceros para mejorar la experiencia de navegación y analizar el tráfico.</p>
+            <h3>¿Qué son las cookies?</h3>
+            <p>Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas una página web. Nos permiten recordar tus preferencias y mejorar el funcionamiento del sitio.</p>
+            <h3>Tipos de cookies que usamos</h3>
+            <ul>
+                <li><strong>Cookies técnicas (necesarias):</strong> Imprescindibles para el funcionamiento básico de la web. No requieren consentimiento.</li>
+                <li><strong>Cookies de preferencias:</strong> Guardan tus preferencias (como la aceptación de cookies) para no preguntarte cada vez.</li>
+                <li><strong>Cookies analíticas:</strong> Nos permiten medir el tráfico y mejorar el servicio (Google Analytics). Solo se activan si las aceptas.</li>
+            </ul>
+            <h3>Cómo desactivar las cookies</h3>
+            <p>Puedes configurar tu navegador para rechazar todas las cookies o para que te avise cuando se envíe una cookie. Ten en cuenta que si desactivas las cookies técnicas, algunas funciones de la web pueden dejar de funcionar correctamente.</p>
+            <ul>
+                <li><strong>Chrome:</strong> Configuración → Privacidad → Cookies</li>
+                <li><strong>Firefox:</strong> Opciones → Privacidad → Cookies</li>
+                <li><strong>Safari:</strong> Preferencias → Privacidad</li>
+            </ul>
+            <h3>Retirar el consentimiento</h3>
+            <p>Puedes retirar tu consentimiento en cualquier momento borrando las cookies de tu navegador. Al volver a visitar la web, se te volverá a mostrar el aviso de cookies.</p>
+        </div>
+    </div>
+
+    <!-- ═══════════ MODAL: AVISO LEGAL ═══════════ -->
+    <div id="modal-aviso" class="legal-modal-overlay" onclick="closeLegalModal('aviso', event)">
+        <div class="legal-modal-box">
+            <button class="legal-modal-close" onclick="closeLegalModal('aviso')"><i class="fa-solid fa-xmark"></i></button>
+            <h2>Aviso Legal</h2>
+            <h3>Titular del sitio web</h3>
+            <p>Bocanegra Gastro Bar · Avda. Sancho Panza, 6, Los Molinos, Getafe, Madrid · bocanegra.getafe@gmail.com · 604 947 426</p>
+            <h3>Objeto</h3>
+            <p>El presente aviso legal regula el uso del sitio web bocanegragetafe.es, del que es titular Bocanegra Gastro Bar.</p>
+            <h3>Condiciones de uso</h3>
+            <p>El acceso y uso de este sitio web implica la aceptación de las presentes condiciones. El usuario se compromete a hacer un uso adecuado de los contenidos y servicios ofrecidos.</p>
+            <h3>Propiedad intelectual</h3>
+            <p>Todos los contenidos del sitio web (textos, imágenes, diseño) son propiedad de Bocanegra Gastro Bar y están protegidos por la legislación vigente en materia de propiedad intelectual. Queda prohibida su reproducción sin autorización expresa.</p>
+            <h3>Responsabilidad</h3>
+            <p>Bocanegra Gastro Bar no se hace responsable de los daños que pudieran derivarse del uso incorrecto de la web ni de la información publicada por terceros.</p>
+            <h3>Legislación aplicable</h3>
+            <p>Este aviso legal se rige por la legislación española. Para cualquier controversia, las partes se someten a los juzgados y tribunales de Getafe (Madrid).</p>
+        </div>
+    </div>
+
     <script>
+// =============================================
+// COOKIES
+// =============================================
+function acceptCookies() {
+    localStorage.setItem('cookieConsent', 'accepted');
+    hideCookieBanner();
+}
+function rejectCookies() {
+    localStorage.setItem('cookieConsent', 'rejected');
+    hideCookieBanner();
+}
+function hideCookieBanner() {
+    const banner = document.getElementById('cookie-banner');
+    banner.classList.remove('visible');
+    setTimeout(() => banner.style.display = 'none', 500);
+}
+function initCookieBanner() {
+    if (!localStorage.getItem('cookieConsent')) {
+        const banner = document.getElementById('cookie-banner');
+        banner.style.display = 'flex';
+        setTimeout(() => banner.classList.add('visible'), 300);
+    }
+}
+
+// =============================================
+// MODALES LEGALES
+// =============================================
+const legalMap = { privacidad: 'modal-privacidad', cookies: 'modal-cookies', aviso: 'modal-aviso' };
+function openLegalModal(type) {
+    document.getElementById(legalMap[type]).classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+function closeLegalModal(type, e) {
+    if (e && e.target !== document.getElementById(legalMap[type])) return;
+    document.getElementById(legalMap[type]).classList.remove('active');
+    document.body.style.overflow = '';
+}
+
 // =============================================
 // MODAL RESERVA
 // =============================================
@@ -906,6 +1052,7 @@ function initClubCarousel() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    initCookieBanner();
     if (document.getElementById('carousel-track')) setTimeout(initInfiniteCarousel, 100);
     initClubCarousel();
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
