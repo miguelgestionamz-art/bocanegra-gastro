@@ -377,8 +377,8 @@ button.footer-reserve-tag { background: none; border: none; cursor: pointer; pad
         <div class="glass-container slide-in-bottom">
             <h2 class="section-title">Nuestra Carta</h2>
             <div class="menu-filters">
-                <button class="filter-btn active" data-filter="comedor">Comedor</button>
-                <button class="filter-btn" data-filter="barra">De la Barra</button>
+                <button class="filter-btn active" data-filter="barra">De la Barra</button>
+                <button class="filter-btn" data-filter="comedor">Comedor</button>
                 <button class="filter-btn" data-filter="postres">Postres</button>
                 <button class="filter-btn" data-filter="terraza">Terraza</button>
                 <a href="carta_bocanegra.jpg" target="_blank" class="pdf-btn"><i class="fa-solid fa-file-image"></i> VER CARTA COMPLETA</a>
@@ -769,7 +769,7 @@ function renderMenu(activeCategory = 'all') {
             const catAccordion = document.createElement('details');
             catAccordion.className = 'menu-accordion menu-category-accordion';
             catAccordion.id = `cat-${cat.id}`;
-            if (activeCategory !== 'all' || cat.id === 'comedor') catAccordion.open = true;
+            if (activeCategory !== 'all' || cat.id === 'barra') catAccordion.open = true;
             const items = menuData.filter(item => item.category === cat.id);
             let itemsHtml = items.map((item, index) => `
                 <div class="menu-item" style="animation-delay: ${index * 0.05}s">
@@ -801,7 +801,7 @@ filterBtns.forEach(btn => {
         renderMenu(btn.getAttribute('data-filter'));
     });
 });
-renderMenu('comedor');
+renderMenu('barra');
 
 // =============================================
 // NAVIGATION
